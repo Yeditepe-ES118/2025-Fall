@@ -1,0 +1,20 @@
+#+TITLE: ES118 Lab #1
+#+AUTHOR: Ufuk Baler, MSc. & Assoc. Prof. Dr. Fethi Okyar
+#+DATE: 2025-09-29
+#+SUBTITLE: Terminal crash course /w AI
+#+STARTUP: overview
+#+REVEAL_THEME: simple
+#+REVEAL_INIT_OPTIONS: slideNumber:"c/t", width:1920, height:1080
+#+REVEAL_TITLE_SLIDE: <h2>%t</h2> <h3>%s</h3> <h4>%a</h4> <h4>%d</h4>
+#+OPTIONS: timestamp:nil toc:1 num:nil reveal_global_footer:nil
+#+REVEAL_EXTRA_CSS: ../codestyle.css
+#+LATEX_HEADER: \usepackage{amsmath}
+
+* Demonstration
+1. downloading the terminal - git-bash
+2. opening an AI client
+3. concerns using an AI model
+4. fundamental questions on terminal, and its utilization
+
+* Deliverables
+quiz-lab-1 on Yulearn

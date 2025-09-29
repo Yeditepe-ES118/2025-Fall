@@ -1,0 +1,13 @@
+.reveal pre {
+    font-size: 1em;
+}
+
+.reveal {
+  .slides {
+    .slide {
+      img+p.caption {
+        font-size: 0.1em;
+      }
+    }
+  }
+}

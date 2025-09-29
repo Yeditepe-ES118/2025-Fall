@@ -1,0 +1,98 @@
+#+TITLE: Syllabus 
+#+SUBTITLE: Fall 2025, ES118 Introduction to Scientific Computing with Python, Sections 1-2-3
+#+AUTHOR: Ufuk Baler, MSc. & Assoc. Prof. Dr. Fethi Okyar
+#+STARTUP: overview
+#+REVEAL_THEME: simple
+#+REVEAL_INIT_OPTIONS: slideNumber:"c/t", width:1920, height:1080
+#+REVEAL_TITLE_SLIDE: <h2>%t</h2> <h3>%s</h3> <h4>%a</h4> <h4>%d</h4>
+#+OPTIONS: timestamp:nil toc:1 num:nil reveal_global_footer:nil
+#+REVEAL_EXTRA_CSS: ./style.css
+#+LATEX_HEADER: \usepackage{amsmath}
+
+
+
+* Location and time
+| Section | Lecture          | Lab              |
+|---------+------------------+------------------|
+|       1 | Mon. 14:00-16:00 | Mon. 16:00-18:00 |
+|       2 | Mon. 14:00-16:00 | Wed. 14:00-16:00 |
+|       3 | Mon. 14:00-16:00 | Wed. 09:00-11:00 |
+
+- Lectures: Güzel Sanatlar Binası, Room: 202
+- Labs: Mühendislik Binası, Room: B0410
+
+* Course objectives
+- To _provide students with the ability of using a computer_ in engineering practice
+- _Application of this ability_ in problem solving
+  
+* Weekly plan
+#+REVEAL_HTML: <div style="font-size: 80%;">
+| Week | Lecture                                                         | Laboratory                                      | Dates       |
+|------+-----------------------------------------------------------------+-------------------------------------------------+-------------|
+|    1 | Course conduct, Interacting with an operating system            | Terminal crash course w/ AI                     | 09-29,10-01 |
+|    2 | Programming environments: Python, and Git                       | Python, and Git crash course                    | 10-06,10-08 |
+|    3 | Data types, operator precedence, registers                      | Basic calculations, Demo of built-in functions  | 10-13,10-15 |
+|    4 | Basic input and output, and defining functions                  | Writing user functions                          | 10-20,10-22 |
+|    5 | Logical operators, conditionals and loops                       | Cumhuriyet Bayramı                              | 10-27,10-29 |
+|    6 | Algorithm representations                                       | Debugging algorithms                            | 11-03,11-05 |
+|    7 | Midterm                                                         | Midterm review                                  | 11-10,11-12 |
+|    8 | Array definitions in Python                                     | Vector operations                               | 11-17,11-19 |
+|    9 | Indexing arrays                                                 | Finding mass centroid of particles              | 11-24,11-26 |
+|   10 | Plotting                                                        | Plotting crash course                           | 12-01,12-03 |
+|   11 | Generating data series for plotting, File read/write operations | Illustrating chronological data of a food chain | 12-08,12-10 |
+|   12 | Exercises                                                       | Bisection method (rootfinding)                  | 12-15,12-17 |
+|   13 | Review                                                          | Review                                          | 12-22,12-24 |
+#+REVEAL_HTML: <div>
+
+* Resources
+#+REVEAL_HTML: <div style="font-size: 60%;">
+- *Lecture & lab notes:*
+  + *first lecture can be viewed at https://yeditepe-es118.github.io/2025-Spring/lecture-1/*
+  + *similarly first lab will be at https://yeditepe-es118.github.io/2025-Spring/lab-1/*
+  + *Scientific Python (free online): https://lectures.scientific-python.org/*
+- Free online documentation
+  #+ATTR_REVEAL: :frag (appear appear appear ...)
+  + *NumPy, a numerical computing Python library: https://numpy.org/*
+  + *Matplotlib, a visualization Python library: https://matplotlib.org/*
+  + Python programming language: https://www.python.org/
+  + *git book: https://git-scm.com/book/en/v2*
+  + Operating systems: https://openosorg.github.io/openos/textbook/intro/pref.html
+#+ATTR_REVEAL: :frag (appear appear appear ...)
+- Spyder, integrated development environment (IDE): https://www.spyder-ide.org/
+  + *install Spyder via Conda package manager: https://www.anaconda.com/download*
+- Additional textbooks
+  + Learning the Unix Operating System, Jerry Peak, et. al, 5th Edition
+  + Operating system concepts, Abraham Silberschatz, et. al, 8th Edition
+- version control
+  #+ATTR_REVEAL: :frag (appear appear appear ...)
+  * *Install Git bash software: https://git-scm.com/downloads*
+  * *Github, software developer platform: https://github.com/*
+  * *Github classroom: https://classroom.github.com/*
+#+REVEAL_HTML: <div>
+
+* Assessment
+#+REVEAL_HTML: <div style="font-size: 90%;">
+| In-term studies     | Percentage (%) |
+|---------------------+----------------|
+| Midterm             |             35 |
+| In-term performance |             15 |
+| Final               |             50 |
+
+* Compulsory attendence
+
+80% of sum of all lecture and lab hours
+
+#+REVEAL_HTML: <div>
+
+* Contact
+Email: ufuktan.baler@yeditepe.edu.tr
+
+* Key terms
+#+REVEAL_HTML: <div style="font-size: 90%;">
+| computer | user     | program    | software | hardware |
+| keyboard | mouse    | editor     | terminal | IDE      |
+| CPU      | memory   | disk       | network  | script   |
+| console  | variable | arithmetic | import   | library  |
+| module   |          |            |          |          |
+
+#+REVEAL_HTML: <div>

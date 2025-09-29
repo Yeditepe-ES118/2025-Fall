@@ -1,0 +1,318 @@
+#+TITLE: ES118 Lecture #1
+#+AUTHOR: Ufuk Baler, MSc. & Assoc. Prof. Dr. Fethi Okyar
+#+SUBTITLE: Interacting with a computer system
+#+STARTUP: overview
+#+REVEAL_THEME: simple
+#+REVEAL_INIT_OPTIONS: slideNumber:"c/t", width:1920, height:1080
+#+REVEAL_TITLE_SLIDE: <h2>%t</h2> <h3>%s</h3> <h4>%a</h4> <h4>%d</h4>
+#+OPTIONS: timestamp:nil toc:1 num:nil reveal_global_footer:nil
+#+REVEAL_EXTRA_CSS: ../codestyle.css
+#+LATEX_HEADER: \usepackage{amsmath}
+
+* Computer systems
+Computer systems are composed of four key components as follows
+#+ATTR_HTML: :width 600px
+#+NAME: fig:computersystem
+[[./computersystem.png]]
+
+** User
+#+ATTR_REVEAL: :frag (appear)
+#+ATTR_HTML: :style float:left;margin:20px 20px 20px 0px;
+#+NAME: fig:user
+[[./user.png]]
+
+#+ATTR_REVEAL: :frag (appear)
+You're the *user*, who uses *application programs* via a *keyboard*, or *mouse*. When you give an input to a program, you receieve a visual feedback from a monitor connected to the computer hardware.
+#+ATTR_REVEAL: :frag (appear)
+The feedback can be either a *text*, or a fancy *window* with a fancy user interface.
+#+ATTR_REVEAL: :frag (appear)
+As a result, you are *interacting with a computer to solve your issues* that you face in your life in an efficient manner.
+
+#+ATTR_REVEAL: :frag (appear)
+These issues might include
+#+ATTR_REVEAL: :frag (appear appear appear ...)
+- writing a cooking recipe
+- watching a Youtube video
+- playing games
+- summing up two numbers
+- copying and pasting files
+- writing Python programs to solve anything
+#+ATTR_REVEAL: :frag (appear)
+and many more.
+
+** Application programs
+#+ATTR_REVEAL: :frag (appear)
+The application programs are created to *ease our daily lives*, and can be written in *different programming languages*.
+#+ATTR_REVEAL: :frag (appear)
+Some of the application programs that we use in this course include *terminal (emulator)*, *file manager*, *text editor*, *programming environment*, and *version control program*.
+*** programming environment: integrated development environment (IDE)
+#+ATTR_REVEAL: :frag (appear)
+An IDE is a programming environment, which *bundles* a terminal, a file manager, and a text editor.
+#+ATTR_REVEAL: :frag (appear)
+In addition, a workspace, and a command history display variable values, and the commands previously entered in the terminal, respectively.
+#+ATTR_REVEAL: :frag (appear)
+Further utility tools are shipped with an IDE, they will be mentioned in the next lectures.
+
+#+REVEAL: split
+#+ATTR_HTML: :width 1000px
+#+CAPTION: Spyder IDE terminal.
+#+NAME: fig:spyderide
+[[./spyderide.png]]
+
+*** text editor
+A text editor is a piece of application program that fundamentally
+#+ATTR_REVEAL: :frag (appear appear appear ...)
+- *inserts text characters* from the keyboard input
+- *copies/pastes/cuts text characters* using keyboard shortcuts or a mouse
+- *navigates* through the text
+- *saves* or *loads* text to or from a text file, respectively
+
+*** file manager
+A file manager *browses* and *edits* *directories* and *files* in the file system.
+#+CAPTION: It can be seen that same directories in Figure [[fig:terminal]] are also depicted in the file manager.
+#+NAME: fig:filemanager
+[[./filemanager.png]]
+
+*** terminal (emulator)
+A terminal is a *visual emulation* of *computer terminals* in modern computer systems.
+#+CAPTION: Output of ~ls~ command for listing directories and files of a user
+#+NAME: fig:terminal
+[[./terminal.png]]
+#+ATTR_REVEAL: :frag (appear)
+It *takes commands* through *text input*, and the computer gives *text output* in response.
+#+ATTR_REVEAL: :frag (appear)
+Using a terminal is very *powerful* and *efficient* way to do things in a computer.
+
+*** a version control program
+*git* is the most common version control program. It creates *commits* (versions) of *files*, in order to *record*, and *track the changes* in the files.
+#+CAPTION: Output of ~git status~ shows the *modified*, and *untracked* (newly created) in a git repository directory called ~es117-template~
+#+NAME: fig:gitprogram
+[[./gitprogram.png]]
+
+** Computer hardware
+In general, a computer has a hardware organization as indicated below
+#+NAME: fig:hardware
+[[./hardware.png]]
+
+*** central processing unit (CPU)
+#+ATTR_HTML: :width 20%
+#+NAME: fig:Intel_i9-14900K.webp
+[[./Intel_i9-14900K.webp.png]]
+
+#+ATTR_REVEAL: :frag (appear)
+CPU *executes operations*.
+
+#+ATTR_REVEAL: :frag (appear)
+You can think of CPU as the *brain of a computer*.
+
+#+ATTR_REVEAL: :frag (appear)
+It can perform basic operations such as,
+#+ATTR_REVEAL: :frag (appear appear appear ...)
+- arithmetic
+- comparison of two quantities
+- jumping (loops)
+
+#+ATTR_REVEAL: :frag (appear)
+/[[https://en.wikipedia.org/wiki/File:Intel_i9-14900K.webp][This image]]'s author is ArtyomK2707 and, [[https://creativecommons.org/licenses/by-sa/4.0/][it is licensed under CC BY-SA 4.0 DEED.]]/
+
+*** memory (main memory)
+#+ATTR_HTML: :width 30%
+#+NAME: fig:Swissbit_2GB_PC2-5300U-555
+[[./Swissbit_2GB_PC2-5300U-555.jpg]]
+
+#+ATTR_REVEAL: :frag (appear)
+The memory stores, and provides data to CPU.
+
+#+ATTR_REVEAL: :frag (appear)
+It is nearly fast as the CPU.
+
+#+ATTR_REVEAL: :frag (appear)
+Data inside the memory is deleted when the computer is shutdown.
+
+#+ATTR_REVEAL: :frag (appear)
+/Author of [[https://en.wikipedia.org/wiki/File:Swissbit_2GB_PC2-5300U-555.jpg][this image]] is [[https://commons.wikimedia.org/wiki/User:An-d][An-d]], and [[https://creativecommons.org/licenses/by-sa/3.0/][it is licensed under CC BY-SA 3.0 DEED]]/
+
+*** disks (secondary memory)
+#+ATTR_HTML: :width 30%
+#+NAME: fig:Laptop-hard-drive-exposed
+[[./Laptop-hard-drive-exposed.jpg]]
+
+#+ATTR_REVEAL: :frag (appear)
+A Disk is also used to store data, but it is much slower than a memory.
+
+#+ATTR_REVEAL: :frag (appear)
+Advantage of disks over memories is that they can store information even if the computer is shutdown.
+
+#+ATTR_REVEAL: :frag (appear appear appear ...)
+/(1) [[https://en.wikipedia.org/wiki/File:Laptop-hard-drive-exposed.jpg][This image]]'s author is [[https://commons.wikimedia.org/wiki/User:Evan-Amos][Evan-Amos]], and [[https://creativecommons.org/licenses/by-sa/3.0/][it is licensed under CC BY-SA 3.0 DEED]]./
+/(2) [[https://en.wikipedia.org/wiki/File:Samsung_SSD_840_120GB_MZ-7TD120--4_LID_REMOVED.JPG][This image]]'s author is MatteX, and [[https://creativecommons.org/publicdomain/zero/1.0/][it is licensed under CC0 1.0 DEED]]./
+/(3) [[https://en.wikipedia.org/wiki/File:Intel_525_mSATA_SSD.jpg][This image]]'s author is [[https://commons.wikimedia.org/wiki/User:User5515][User5515]], and [[https://creativecommons.org/licenses/by/3.0/][it is licensed under CC BY 3.0 DEED]]./
+
+*** network (secondary memory)
+#+ATTR_REVEAL: :frag (appear)
+A network connection helps the user to get data over a network of computers.
+#+ATTR_REVEAL: :frag (appear)
+The network can be thought of a data storage place, but it is slowest compared to memory and disk.
+
+*** peripherals
+#+ATTR_HTML: :style float:left;margin:0px 0px 0px 0px; :width 33%
+#+NAME: fig:TurkishQWERTY
+[[./TurkishQWERTY.png]]
+
+**** Keyboard
+#+ATTR_REVEAL: :frag (appear appear appear ...)
+- Digits
+  ~0, 1, 2, 3, 4, 5, 6, 7, 8, 9~
+- Letters
+  ~A-Z~
+- Characters
+  #+ATTR_REVEAL: :frag (appear appear appear ...)
+  + arithmetic operators
+    #+ATTR_REVEAL: :frag (appear appear appear ...)
+    * plus (addition): ~+~
+    * hyphen (substraction): ~-~
+    * slash (division): ~/~
+    * asterisk (multiplication): ~*~
+  + brackets
+    #+ATTR_REVEAL: :frag (appear appear appear ...)
+    * parantheses: ~()~
+    * square brackets: ~[]~
+    * curly brackets: ~{}~
+  + comparison
+    #+ATTR_REVEAL: :frag (appear appear appear ...)
+    * less than: ~<~
+    * larger than: ~>~
+/[[https://en.wikibooks.org/wiki/File:TurkishQWERTY.png][This image]]'s author is [[https://commons.wikimedia.org/wiki/User:Anlztrk][Anlztrk]], and [[https://creativecommons.org/licenses/by-sa/4.0/][it is licensed under CC BY-SA 4.0 DEED]]/      
+#+REVEAL: split
+#+ATTR_REVEAL: :frag (appear appear appear ...)
+  + Punctuation
+    #+ATTR_REVEAL: :frag (appear appear appear ...)
+    * dot: ~.~
+    * comma: ~,~
+    * colon: ~:~      
+    * semi-colon: ~;~
+    * exclamation mark: ~!~
+    * question mark: ~?~
+  + Special characters:
+    #+ATTR_REVEAL: :frag (appear appear appear ...)
+    * equal: ~=~
+    * backslash: ~\~
+    * single quation mark: ~'~
+    * double quotation mark: ~"~
+    * tilde: ~~~
+    * percent: ~%~
+    * ampersand: ~&~
+    * caret: ~^~
+    * underscore: ~_~      
+#+REVEAL: split
+#+ATTR_REVEAL: :frag (appear appear appear ...)
+- Editing keys
+  #+ATTR_REVEAL: :frag (appear appear appear ...)
+  + Delete
+  + Backspace
+  + Space
+  + Return/Enter
+  + Caps Lock
+- Mod keys
+  #+ATTR_REVEAL: :frag (appear appear appear ...)
+  + Ctrl
+  + Alt
+  + Shift
+  + Tab
+- Text navigation
+  #+ATTR_REVEAL: :frag (appear appear appear ...)
+  + Right, Left, Up, Down arrows
+  + Home, End
+  + Page Up, Page Down
+
+**** Mouse
+#+ATTR_REVEAL: :frag (appear appear appear ...)
+- Left mouse button: ~LMB~
+- Right mouse button: ~RMB~
+- Middle (scroll) mouse button: ~MMB~
+** Operating system (OS)
+#+ATTR_REVEAL: :frag (appear)
+An OS
+#+ATTR_REVEAL: :frag (appear appear appear ...)
+1. is a program that manages the computer hardware
+2. provides a basis for the user programs
+3. acts as an intermediary between the computer user and the computer
+
+#+REVEAL: split
+
+#+ATTR_REVEAL: :frag (appear)
+#+ATTR_HTML: :width 50%
+#+NAME: fig:os
+[[./os.png]]
+
+*In general*, there is not a *sufficient* definition of an operating system.
+
+#+ATTR_REVEAL: :frag (appear)
+Fundamental aims of operating systems are to *execute* (run) programs, and *allocate* the *resources* for the programs.
+
+#+ATTR_REVEAL: :frag (appear)
+Such operations require *common functions* of allocating, and controlling resources. They are brought together into *one piece of software*: the *operating system*.
+
+#+REVEAL: split
+
+#+ATTR_REVEAL: :frag (appear)
+The structure is composed of three *layers*:
+#+ATTR_REVEAL: :frag (appear appear appear ...)
+- the kernel: a computer program handles hardware and software interaction
+- the shell: command interpreter, which looks after the communication between the user and the system itself
+- the utility/application programs
+
+
+* User interaction
+** Terminal
+In the old days, 1960s, users are connected to a computer called *mainframe*. The computations are performed on the mainframes. A user has access the operating system through *terminals* that capable of accepting *input commands*, and giving *output* from the mainframes. These terminals are in the form of a keyboard equipped with a printer.
+
+#+ATTR_HTML: :width 40%
+#+NAME: fig:ttyterminal
+[[./ttyterminal.jpg]]
+/[[https://en.wikipedia.org/wiki/File:IBM_2741_Communications_Terminal.jpg][This image]]'s author is [[https://commons.wikimedia.org/wiki/User:Oscar.nierstrasz][Oscar.nierstrasz]], and [[https://creativecommons.org/licenses/by-sa/4.0/][it is licensed under CC BY-SA 4.0 DEED]]./
+
+#+REVEAL: split
+Later, rows of characters are contained within *video display terminals*, which became popular.
+
+#+ATTR_HTML: :width 40%
+#+NAME: fig:videodisplayterminal
+[[./videodisplayterminal.jpg]]
+/[[https://en.wikipedia.org/wiki/File:IBM_2260_video_display_terminal.jpg][This image]] is published into the public domain./
+
+#+REVEAL: split
+Today, those old terminals are *emulated* by a *graphical user interface* (GUI) window in our screens.
+
+#+ATTR_HTML: :width 60%
+#+NAME: fig:terminal
+[[./terminal.png]]
+
+** Command prompt
+- The *command prompt* is the area, where a user can *type characters* to send input commands via the shell
+- They are displayed in the terminals, and ready to accept characters from the keyboard
+
+** Shell
+#+ATTR_REVEAL: :frag (appear)
+Remark that the *shell* is a command-line interpreter, which provides *a layer of interaction* between the user, and the kernel. An *interpreter* is kind of a *translator* that converts commands to *machine language*.
+Converting this bit of code to the machine language is the responsibility of the interpreter. Therefore, machine language may look like
+#+ATTR_REVEAL: :frag (appear)
+#+BEGIN_SRC bash
+10101000001110100101010101010010
+#+END_SRC
+CPU operates on this machine code, and in turn outputs.
+#+ATTR_REVEAL: :frag (appear)
+
+
+
+* File system abstraction
+A *file* is the unit of storages, and it can hold anything
+#+ATTR_REVEAL: :frag (appear appear appear ...)
+- a text
+- a program
+- digital pictures
+- sound
+#+ATTR_REVEAL: :frag (appear)  
+and so on.
+
+#+ATTR_REVEAL: :frag (appear)
+A *directory* (or a folder) is a special file, where the information of other files are stored. In other words, a directory is a container of zero or more files.

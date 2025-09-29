@@ -1,0 +1,101 @@
+#+TITLE: Conduct
+#+SUBTITLE: Fall 2025, ES118 Introduction to Scientific Computing with Python, Sections 1-2-3
+#+AUTHOR: Ufuk Baler, MSc. & Assoc. Prof. Dr. Fethi Okyar
+#+STARTUP: overview
+#+REVEAL_THEME: simple
+#+REVEAL_INIT_OPTIONS: slideNumber:"c/t", width:1920, height:1080
+#+REVEAL_TITLE_SLIDE: <h2>%t</h2> <h3>%s</h3> <h4>%a</h4> <h4>%d</h4>
+#+OPTIONS: timestamp:nil toc:1 num:nil reveal_global_footer:nil
+#+REVEAL_EXTRA_CSS: ../codestyle.css
+#+LATEX_HEADER: \usepackage{amsmath}
+
+
+* What is scientific computing, and why does this course exist?
+/From: Georgia Tech, School of Computational Science and Engineering, College of Computing/
+#+BEGIN_QUOTE 
+"Scientific computing *harnesses* computing to solve *problems in science and engineering* that involve *mathematical models*, such as those based on partial differential equations or the interactions between particles such as individual atoms.  The applications range in scale from *biomolecules, complex materials, built structures and other engineered systems, weather and climate, to galaxies*.  *Simulation of natural and engineered systems* with these models on a computer is particularly important when these systems are *inaccessible to actual experiments*, e.g., observing proteins as they bind to drug molecules, predicting the landfall of hurricanes or the spread of disease, and mapping the evolution of the universe."
+#+END_QUOTE
+
+This course aims for someone to *develop necessary skills* to *utilize scientific computing tools* in problems.
+
+#+ATTR_REVEAL: :frag (appear)
+The skills include,
+#+ATTR_REVEAL: :frag (appear appear appear ...)
+- Using a *keyboard*
+- Using a *mouse*
+- Understanding the basic organization of *computers*
+- *Algorithmic* thinking
+- Navigating *folders* using *shell* and *terminal*
+- Writing *code* in an *editor*, and a *command prompt*
+- Learning how *numbers* are stored in a computer, and some side effects due to *hardware* limitations
+- Using a *version control* program: *git*
+- Using a version control platform: *Github*
+- Using *Integrated Development Environments (IDEs)* for programming
+- *Debugging*
+- Some scientific *libraries* written in Python
+- Learning _HOW TO_ catch a fish!
+
+* Activities
+#+ATTR_REVEAL: :frag (appear appear appear ...)
+- Lectures
+  + Listening and taking notes in the lecture
+  + Preparation for lectures using *openAI*, or any other AI software
+- Laboratory sessions
+  + Using computers
+  + In-lab deliverables
+- Attendence through Yulearn check-in
+- Homeworks
+  + *Github classroom*
+  + In-class delivery
+- Midterm
+- Final
+
+* Lectures
+#+ATTR_REVEAL: :frag (appear appear appear ...)
+- The board, projector, and supplementary materials will be utilized.
+- _Asking questions_, and _taking notes_ are encouraged.
+- Before each lecture you may be _given some questions_ which shall be answered by *AI*. You are expected to _contribute in lecture discussions_ regarding your answers.
+
+* Laboratory sessions
+- Use of cell phones, tablets, etc.
+- Gaming on the pc,  
+are strictly forbidden.
+
+In case of any action of the above will result in cancellation of the lab work.
+
+Copying a student's work will also result in cancellation of every student who involve in, including the owner of the original work.
+
+After 15 min of being late, you cannot participate in the grading of the lab session.
+
+It is not permitted to leave the lab. If you do, then your grading will not be valid.
+
+The materials for the laboratory include,
+#+ATTR_REVEAL: :frag (appear appear appear ...)
+- Used by you
+  #+ATTR_REVEAL: :frag (appear appear appear ...)
+  + A *personal computer* (PC)
+  + A terminal
+  + A _Github account_ signed up with your std.yeditepe.edu.tr email account.
+- Used by the instructor
+  #+ATTR_REVEAL: :frag (appear appear appear ...)
+  + A projector showing the lab's content
+  + A board used by the instructor to illustrate the important concepts
+
+#+ATTR_REVEAL: :frag (appear appear appear ...)
+- The day before lab sessions, a file is uploaded
+- The lab sessions are divided into two parts: /demo/, and /assesment/.
+- In the demo part, _you're responsible to follow_ the given concept
+- Then in the assesment part, _you have to satisfy the deliverables_
+- The deliverables are evaluated either _in the lab session_, or as _a Github classroom assignment_.
+- You're encouraged to _bring your laptop to the laboratory sessions_.
+
+* Homeworks
+Homeworks are assigned through Github classroom assignments, or delireved in the class.
+
+* Midterms
+They are conducted at the lecture hour.
+
+* How to get the updates about this course?
+#+ATTR_REVEAL: :frag (appear appear appear ...)
+- *Yulearn/ES118.ALL* course page for class materials
+- *OBS* system for announcements

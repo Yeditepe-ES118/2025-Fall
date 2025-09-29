@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>ES118 Lecture #1</title>
+<meta name="author" content="Ufuk Baler, MSc. &amp; Assoc. Prof. Dr. Fethi Okyar"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/simple.css" id="theme"/>
+
+<link rel="stylesheet" href="../codestyle.css"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/npm/reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h2>ES118 Lecture #1</h2> <h3>Interacting with a computer system</h3> <h4>Ufuk Baler, MSc. &amp; Assoc. Prof. Dr. Fethi Okyar</h4> <h4></h4>
+</section>
+<section id="sec-table-of-contents"><div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#/slide-orgeb90b4d">Computer systems</a></li>
+<li><a href="#/slide-org0c2d7a3">User interaction</a></li>
+<li><a href="#/slide-org3c843ca">File system abstraction</a></li>
+</ul>
+</div>
+</div>
+</section>
+<section>
+<section id="slide-orgeb90b4d">
+<h2 id="orgeb90b4d">Computer systems</h2>
+<p>
+Computer systems are composed of four key components as follows
+</p>
+
+<div id="orgd933326" class="figure">
+<p><img src="./computersystem.png" alt="computersystem.png" width="600px" />
+</p>
+</div>
+</section>
+<section id="slide-org78105b4">
+<h3 id="org78105b4">User</h3>
+
+<div id="org8de771d" class="figure">
+<p><img src="./user.png" alt="user.png" class="fragment (appear)" style="float:left;margin:20px 20px 20px 0px;" />
+</p>
+</div>
+
+<p class="fragment (appear)">
+You're the <b>user</b>, who uses <b>application programs</b> via a <b>keyboard</b>, or <b>mouse</b>. When you give an input to a program, you receieve a visual feedback from a monitor connected to the computer hardware.
+</p>
+<p class="fragment (appear)">
+The feedback can be either a <b>text</b>, or a fancy <b>window</b> with a fancy user interface.
+</p>
+<p class="fragment (appear)">
+As a result, you are <b>interacting with a computer to solve your issues</b> that you face in your life in an efficient manner.
+</p>
+
+<p class="fragment (appear)">
+These issues might include
+</p>
+<ul>
+<li class="fragment appear">writing a cooking recipe</li>
+<li class="fragment appear">watching a Youtube video</li>
+<li class="fragment appear">playing games</li>
+<li class="fragment ...">summing up two numbers</li>
+<li class="fragment ...">copying and pasting files</li>
+<li class="fragment ...">writing Python programs to solve anything</li>
+
+</ul>
+<p class="fragment (appear)">
+and many more.
+</p>
+</section>
+<section id="slide-orgdadb75a">
+<h3 id="orgdadb75a">Application programs</h3>
+<p class="fragment (appear)">
+The application programs are created to <b>ease our daily lives</b>, and can be written in <b>different programming languages</b>.
+</p>
+<p class="fragment (appear)">
+Some of the application programs that we use in this course include <b>terminal (emulator)</b>, <b>file manager</b>, <b>text editor</b>, <b>programming environment</b>, and <b>version control program</b>.
+</p>
+</section>
+<section id="slide-orgf6d1109">
+<h4 id="orgf6d1109">programming environment: integrated development environment (IDE)</h4>
+<p class="fragment (appear)">
+An IDE is a programming environment, which <b>bundles</b> a terminal, a file manager, and a text editor.
+</p>
+<p class="fragment (appear)">
+In addition, a workspace, and a command history display variable values, and the commands previously entered in the terminal, respectively.
+</p>
+<p class="fragment (appear)">
+Further utility tools are shipped with an IDE, they will be mentioned in the next lectures.
+</p>
+
+</section>
+<section id="slide-orgf6d1109-split">
+
+<div id="org4b05760" class="figure">
+<p><img src="./spyderide.png" alt="spyderide.png" width="1000px" />
+</p>
+<p><span class="figure-number">Figure 1: </span>Spyder IDE terminal.</p>
+</div>
+</section>
+<section id="slide-orgbde8208">
+<h4 id="orgbde8208">text editor</h4>
+<p>
+A text editor is a piece of application program that fundamentally
+</p>
+<ul>
+<li class="fragment appear"><b>inserts text characters</b> from the keyboard input</li>
+<li class="fragment appear"><b>copies/pastes/cuts text characters</b> using keyboard shortcuts or a mouse</li>
+<li class="fragment appear"><b>navigates</b> through the text</li>
+<li class="fragment ..."><b>saves</b> or <b>loads</b> text to or from a text file, respectively</li>
+
+</ul>
+</section>
+<section id="slide-org947d869">
+<h4 id="org947d869">file manager</h4>
+<p>
+A file manager <b>browses</b> and <b>edits</b> <b>directories</b> and <b>files</b> in the file system.
+</p>
+
+<div id="org793430a" class="figure">
+<p><img src="./filemanager.png" alt="filemanager.png" />
+</p>
+<p><span class="figure-number">Figure 2: </span>It can be seen that same directories in Figure <a href="#/slide-orgb88f830">No description for this link</a> are also depicted in the file manager.</p>
+</div>
+</section>
+<section id="slide-org66261cf">
+<h4 id="org66261cf">terminal (emulator)</h4>
+<p>
+A terminal is a <b>visual emulation</b> of <b>computer terminals</b> in modern computer systems.
+</p>
+
+<div id="org11bd78c" class="figure">
+<p><img src="./terminal.png" alt="terminal.png" />
+</p>
+<p><span class="figure-number">Figure 3: </span>Output of <code>ls</code> command for listing directories and files of a user</p>
+</div>
+<p class="fragment (appear)">
+It <b>takes commands</b> through <b>text input</b>, and the computer gives <b>text output</b> in response.
+</p>
+<p class="fragment (appear)">
+Using a terminal is very <b>powerful</b> and <b>efficient</b> way to do things in a computer.
+</p>
+</section>
+<section id="slide-org123d799">
+<h4 id="org123d799">a version control program</h4>
+<p>
+<b>git</b> is the most common version control program. It creates <b>commits</b> (versions) of <b>files</b>, in order to <b>record</b>, and <b>track the changes</b> in the files.
+</p>
+
+<div id="org2a6735e" class="figure">
+<p><img src="./gitprogram.png" alt="gitprogram.png" />
+</p>
+<p><span class="figure-number">Figure 4: </span>Output of <code>git status</code> shows the <b>modified</b>, and <b>untracked</b> (newly created) in a git repository directory called <code>es117-template</code></p>
+</div>
+</section>
+<section id="slide-org2beefb8">
+<h3 id="org2beefb8">Computer hardware</h3>
+<p>
+In general, a computer has a hardware organization as indicated below
+</p>
+
+<div id="org4d3f0d6" class="figure">
+<p><img src="./hardware.png" alt="hardware.png" />
+</p>
+</div>
+</section>
+<section id="slide-org3a6dc67">
+<h4 id="org3a6dc67">central processing unit (CPU)</h4>
+
+<div id="org7ccdd86" class="figure">
+<p><img src="./Intel_i9-14900K.webp.png" alt="Intel_i9-14900K.webp.png" width="20%" />
+</p>
+</div>
+
+<p class="fragment (appear)">
+CPU <b>executes operations</b>.
+</p>
+
+<p class="fragment (appear)">
+You can think of CPU as the <b>brain of a computer</b>.
+</p>
+
+<p class="fragment (appear)">
+It can perform basic operations such as,
+</p>
+<ul>
+<li class="fragment appear">arithmetic</li>
+<li class="fragment appear">comparison of two quantities</li>
+<li class="fragment appear">jumping (loops)</li>
+
+</ul>
+
+<p class="fragment (appear)">
+<i><a href="https://en.wikipedia.org/wiki/File:Intel_i9-14900K.webp" class="fragment (appear)">This image</a>'s author is ArtyomK2707 and, <a href="https://creativecommons.org/licenses/by-sa/4.0/">it is licensed under CC BY-SA 4.0 DEED.</a></i>
+</p>
+</section>
+<section id="slide-org8bdd727">
+<h4 id="org8bdd727">memory (main memory)</h4>
+
+<div id="org192d8d4" class="figure">
+<p><img src="./Swissbit_2GB_PC2-5300U-555.jpg" alt="Swissbit_2GB_PC2-5300U-555.jpg" width="30%" />
+</p>
+</div>
+
+<p class="fragment (appear)">
+The memory stores, and provides data to CPU.
+</p>
+
+<p class="fragment (appear)">
+It is nearly fast as the CPU.
+</p>
+
+<p class="fragment (appear)">
+Data inside the memory is deleted when the computer is shutdown.
+</p>
+
+<p class="fragment (appear)">
+<i>Author of <a href="https://en.wikipedia.org/wiki/File:Swissbit_2GB_PC2-5300U-555.jpg" class="fragment (appear)">this image</a> is <a href="https://commons.wikimedia.org/wiki/User:An-d">An-d</a>, and <a href="https://creativecommons.org/licenses/by-sa/3.0/">it is licensed under CC BY-SA 3.0 DEED</a></i>
+</p>
+</section>
+<section id="slide-orge7b83e5">
+<h4 id="orge7b83e5">disks (secondary memory)</h4>
+
+<div id="org80899c9" class="figure">
+<p><img src="./Laptop-hard-drive-exposed.jpg" alt="Laptop-hard-drive-exposed.jpg" width="30%" />
+</p>
+</div>
+
+<p class="fragment (appear)">
+A Disk is also used to store data, but it is much slower than a memory.
+</p>
+
+<p class="fragment (appear)">
+Advantage of disks over memories is that they can store information even if the computer is shutdown.
+</p>
+
+<p class="fragment (appear appear appear ...)">
+<i>(1) <a href="https://en.wikipedia.org/wiki/File:Laptop-hard-drive-exposed.jpg" class="fragment (appear appear appear ...)">This image</a>'s author is <a href="https://commons.wikimedia.org/wiki/User:Evan-Amos">Evan-Amos</a>, and <a href="https://creativecommons.org/licenses/by-sa/3.0/">it is licensed under CC BY-SA 3.0 DEED</a>.</i>
+<i>(2) <a href="https://en.wikipedia.org/wiki/File:Samsung_SSD_840_120GB_MZ-7TD120--4_LID_REMOVED.JPG">This image</a>'s author is MatteX, and <a href="https://creativecommons.org/publicdomain/zero/1.0/">it is licensed under CC0 1.0 DEED</a>.</i>
+<i>(3) <a href="https://en.wikipedia.org/wiki/File:Intel_525_mSATA_SSD.jpg">This image</a>'s author is <a href="https://commons.wikimedia.org/wiki/User:User5515">User5515</a>, and <a href="https://creativecommons.org/licenses/by/3.0/">it is licensed under CC BY 3.0 DEED</a>.</i>
+</p>
+</section>
+<section id="slide-orgea69821">
+<h4 id="orgea69821">network (secondary memory)</h4>
+<p class="fragment (appear)">
+A network connection helps the user to get data over a network of computers.
+</p>
+<p class="fragment (appear)">
+The network can be thought of a data storage place, but it is slowest compared to memory and disk.
+</p>
+</section>
+<section id="slide-orgf4756ad">
+<h4 id="orgf4756ad">peripherals</h4>
+
+<div id="org25ead56" class="figure">
+<p><img src="./TurkishQWERTY.png" alt="TurkishQWERTY.png" style="float:left;margin:0px 0px 0px 0px;" width="33%" />
+</p>
+</div>
+<ul class="org-ul">
+<li><a id="orge1de163"></a>Keyboard<br />
+<ul>
+<li class="fragment appear">Digits
+<code>0, 1, 2, 3, 4, 5, 6, 7, 8, 9</code></li>
+<li class="fragment appear">Letters
+<code>A-Z</code></li>
+<li class="fragment appear">Characters
+<ul>
+<li class="fragment appear">arithmetic operators
+<ul>
+<li class="fragment appear">plus (addition): <code>+</code></li>
+<li class="fragment appear">hyphen (substraction): <code>-</code></li>
+<li class="fragment appear">slash (division): <code>/</code></li>
+<li class="fragment ...">asterisk (multiplication): <code>*</code></li>
+
+</ul></li>
+<li class="fragment appear">brackets
+<ul>
+<li class="fragment appear">parantheses: <code>()</code></li>
+<li class="fragment appear">square brackets: <code>[]</code></li>
+<li class="fragment appear">curly brackets: <code>{}</code></li>
+
+</ul></li>
+<li class="fragment appear">comparison
+<ul>
+<li class="fragment appear">less than: <code>&lt;</code></li>
+<li class="fragment appear">larger than: <code>&gt;</code></li>
+
+</ul></li>
+
+</ul></li>
+
+</ul>
+<p>
+<i><a href="https://en.wikibooks.org/wiki/File:TurkishQWERTY.png">This image</a>'s author is <a href="https://commons.wikimedia.org/wiki/User:Anlztrk">Anlztrk</a>, and <a href="https://creativecommons.org/licenses/by-sa/4.0/">it is licensed under CC BY-SA 4.0 DEED</a></i>      
+</p>
+</section>
+<section id="slide-orge1de163-split">
+<ul>
+<li class="fragment appear">Punctuation
+<ul>
+<li class="fragment appear">dot: <code>.</code></li>
+<li class="fragment appear">comma: <code>,</code></li>
+<li class="fragment appear">colon: <code>:</code></li>
+<li class="fragment ...">semi-colon: <code>;</code></li>
+<li class="fragment ...">exclamation mark: <code>!</code></li>
+<li class="fragment ...">question mark: <code>?</code></li>
+
+</ul></li>
+<li class="fragment appear">Special characters:
+<ul>
+<li class="fragment appear">equal: <code>=</code></li>
+<li class="fragment appear">backslash: <code>\</code></li>
+<li class="fragment appear">single quation mark: <code>'</code></li>
+<li class="fragment ...">double quotation mark: <code>"</code></li>
+<li class="fragment ...">tilde: <code>~</code></li>
+<li class="fragment ...">percent: <code>%</code></li>
+<li class="fragment ...">ampersand: <code>&amp;</code></li>
+<li class="fragment ...">caret: <code>^</code></li>
+<li class="fragment ...">underscore: <code>_</code></li>
+
+</ul></li>
+
+</ul>
+</section>
+<section id="slide-orge1de163-split">
+<ul>
+<li class="fragment appear">Editing keys
+<ul>
+<li class="fragment appear">Delete</li>
+<li class="fragment appear">Backspace</li>
+<li class="fragment appear">Space</li>
+<li class="fragment ...">Return/Enter</li>
+<li class="fragment ...">Caps Lock</li>
+
+</ul></li>
+<li class="fragment appear">Mod keys
+<ul>
+<li class="fragment appear">Ctrl</li>
+<li class="fragment appear">Alt</li>
+<li class="fragment appear">Shift</li>
+<li class="fragment ...">Tab</li>
+
+</ul></li>
+<li class="fragment appear">Text navigation
+<ul>
+<li class="fragment appear">Right, Left, Up, Down arrows</li>
+<li class="fragment appear">Home, End</li>
+<li class="fragment appear">Page Up, Page Down</li>
+
+</ul></li>
+
+</ul>
+</li>
+<li><a id="orgece5541"></a>Mouse<br />
+<ul>
+<li class="fragment appear">Left mouse button: <code>LMB</code></li>
+<li class="fragment appear">Right mouse button: <code>RMB</code></li>
+<li class="fragment appear">Middle (scroll) mouse button: <code>MMB</code></li>
+
+</ul>
+</li>
+</ul>
+</section>
+<section id="slide-org3a5bde6">
+<h3 id="org3a5bde6">Operating system (OS)</h3>
+<p class="fragment (appear)">
+An OS
+</p>
+<ol>
+<li class="fragment appear">is a program that manages the computer hardware</li>
+<li class="fragment appear">provides a basis for the user programs</li>
+<li class="fragment appear">acts as an intermediary between the computer user and the computer</li>
+
+</ol>
+
+</section>
+<section id="slide-org3a5bde6-split">
+
+
+<div id="org972fe0d" class="figure">
+<p><img src="./os.png" alt="os.png" class="fragment (appear)" width="50%" />
+</p>
+</div>
+
+<p>
+<b>In general</b>, there is not a <b>sufficient</b> definition of an operating system.
+</p>
+
+<p class="fragment (appear)">
+Fundamental aims of operating systems are to <b>execute</b> (run) programs, and <b>allocate</b> the <b>resources</b> for the programs.
+</p>
+
+<p class="fragment (appear)">
+Such operations require <b>common functions</b> of allocating, and controlling resources. They are brought together into <b>one piece of software</b>: the <b>operating system</b>.
+</p>
+
+</section>
+<section id="slide-org3a5bde6-split">
+
+<p class="fragment (appear)">
+The structure is composed of three <b>layers</b>:
+</p>
+<ul>
+<li class="fragment appear">the kernel: a computer program handles hardware and software interaction</li>
+<li class="fragment appear">the shell: command interpreter, which looks after the communication between the user and the system itself</li>
+<li class="fragment appear">the utility/application programs</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org0c2d7a3">
+<h2 id="org0c2d7a3">User interaction</h2>
+<div class="outline-text-2" id="text-org0c2d7a3">
+</div>
+</section>
+<section id="slide-orgff80271">
+<h3 id="orgff80271">Terminal</h3>
+<p>
+In the old days, 1960s, users are connected to a computer called <b>mainframe</b>. The computations are performed on the mainframes. A user has access the operating system through <b>terminals</b> that capable of accepting <b>input commands</b>, and giving <b>output</b> from the mainframes. These terminals are in the form of a keyboard equipped with a printer.
+</p>
+
+<p width="40%">
+<img src="./ttyterminal.jpg" alt="ttyterminal.jpg" width="40%" />
+<i><a href="https://en.wikipedia.org/wiki/File:IBM_2741_Communications_Terminal.jpg">This image</a>'s author is <a href="https://commons.wikimedia.org/wiki/User:Oscar.nierstrasz">Oscar.nierstrasz</a>, and <a href="https://creativecommons.org/licenses/by-sa/4.0/">it is licensed under CC BY-SA 4.0 DEED</a>.</i>
+</p>
+
+</section>
+<section id="slide-orgff80271-split">
+<p>
+Later, rows of characters are contained within <b>video display terminals</b>, which became popular.
+</p>
+
+<p width="40%">
+<img src="./videodisplayterminal.jpg" alt="videodisplayterminal.jpg" width="40%" />
+<i><a href="https://en.wikipedia.org/wiki/File:IBM_2260_video_display_terminal.jpg">This image</a> is published into the public domain.</i>
+</p>
+
+</section>
+<section id="slide-orgff80271-split">
+<p>
+Today, those old terminals are <b>emulated</b> by a <b>graphical user interface</b> (GUI) window in our screens.
+</p>
+
+
+<div id="orgb88f830" class="figure">
+<p><img src="./terminal.png" alt="terminal.png" width="60%" />
+</p>
+</div>
+</section>
+<section id="slide-org560c9b9">
+<h3 id="org560c9b9">Command prompt</h3>
+<ul>
+<li>The <b>command prompt</b> is the area, where a user can <b>type characters</b> to send input commands via the shell</li>
+<li>They are displayed in the terminals, and ready to accept characters from the keyboard</li>
+
+</ul>
+</section>
+<section id="slide-org92e5f0b">
+<h3 id="org92e5f0b">Shell</h3>
+<p class="fragment (appear)">
+Remark that the <b>shell</b> is a command-line interpreter, which provides <b>a layer of interaction</b> between the user, and the kernel. An <b>interpreter</b> is kind of a <b>translator</b> that converts commands to <b>machine language</b>.
+Converting this bit of code to the machine language is the responsibility of the interpreter. Therefore, machine language may look like
+</p>
+<div class="org-src-container">
+
+<pre  class="fragment (appear)"   ><code trim>10101000001110100101010101010010
+</code></pre>
+</div>
+<p>
+CPU operates on this machine code, and in turn outputs.
+</p>
+</section>
+</section>
+<section>
+<section id="slide-org3c843ca">
+<h2 id="org3c843ca">File system abstraction</h2>
+<p>
+A <b>file</b> is the unit of storages, and it can hold anything
+</p>
+<ul>
+<li class="fragment appear">a text</li>
+<li class="fragment appear">a program</li>
+<li class="fragment appear">digital pictures</li>
+<li class="fragment ...">sound</li>
+
+</ul>
+<p class="fragment (appear)">
+and so on.
+</p>
+
+<p class="fragment (appear)">
+A <b>directory</b> (or a folder) is a special file, where the information of other files are stored. In other words, a directory is a container of zero or more files.
+</p>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+slideNumber:"c/t", width:1920, height:1080,
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+
+});
+
+</script>
+</body>
+</html>
