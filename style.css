@@ -1,4 +1,57 @@
 .reveal p {
-    text-align: left;
+    text-align: center;
     margin-left: 55px;
+}
+
+
+.reveal h2 {
+    background-color: #aaaaaa;
+    color: #000000;
+    padding: 5px;
+    display: block;
+    width: max-content;
+    border-radius: 10px;
+    margin-inline: auto;
+}
+
+
+.reveal h3 {
+    background-color: #0099bb;
+    color: #dddddd;
+    padding: 5px;
+    display: block;
+    width: max-content;
+    border-radius: 10px;
+    margin-inline: auto;
+}
+
+
+.reveal h4 {
+    background-color: #aa8877;
+    color: #000000;
+    padding: 5px;
+    display: block;
+    width: max-content;
+    border-radius: 10px;
+    margin-inline: auto;
+}
+
+
+
+.reveal table, th, td {
+    border: 1px solid;
+}
+
+.reveal pre {
+    font-size: 1em;
+}
+
+.reveal {
+    .slides {
+	.slide {
+	    img+p.caption {
+		font-size: 0.1em;
+	    }
+	}
+    }
 }
