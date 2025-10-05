@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>ES118 Lecture #2</title>
+<meta name="author" content="Ufuk Baler, MSc. &amp; Asst. Prof. Dr. Fethi Okyar"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/simple.css" id="theme"/>
+
+<link rel="stylesheet" href="../style.css"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/npm/reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1>ES118 Lecture #2</h1> <h2>Programming environments: Python, and Git</h2> <h5>Ufuk Baler, MSc. &amp; Asst. Prof. Dr. Fethi Okyar</h5>
+</section>
+<section id="sec-table-of-contents"><div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#/slide-orgfc0308c">Spyder</a></li>
+<li><a href="#/slide-org07652d1">Git-Bash Terminal</a></li>
+</ul>
+</div>
+</div>
+</section>
+<section>
+<section id="slide-orgfc0308c">
+<h2 id="orgfc0308c">Spyder</h2>
+<div class="outline-text-2" id="text-orgfc0308c">
+</div>
+</section>
+<section id="slide-org6a87a92">
+<h3 id="org6a87a92">IPython Terminal/Console</h3>
+<div class="column" style="float:left; width:49%; border:1px solid; border-radius:10px">
+<p>
+Arithmetic operations
+</p>
+
+<div id="orga448078" class="figure">
+<p><img src="./ipython_arithmetic.png" alt="ipython_arithmetic.png" width="700px" />
+</p>
+</div>
+</div>
+
+<div class="column" style="float:right; width:49%; border:1px solid; border-radius:10px">
+<p>
+Variable definitions
+</p>
+
+<div id="org8e286d4" class="figure">
+<p><img src="./ipython_vardefs.png" alt="ipython_vardefs.png" width="700px" />
+</p>
+</div>
+
+<p>
+Check the <b>variable explorer</b>:
+</p>
+
+
+<div id="orgc14a8e1" class="figure">
+<p><img src="./spyder_varexplorer.png" alt="spyder_varexplorer.png" width="700px" />
+</p>
+</div>
+</div>
+
+</section>
+<section id="slide-org6a87a92-split">
+<p>
+What is the value of <code>y</code> after execution of the prompts shown in the IPython terminal?
+</p>
+
+<div id="orgc0c1555" class="figure">
+<p><img src="./console_example.png" alt="console_example.png" width="900px" />
+</p>
+</div>
+</section>
+<section id="slide-org63cd1e1">
+<h3 id="org63cd1e1">Creating scripts for repeating tasks</h3>
+<p>
+Instead of writing code in the console, let's create a <b>script file</b> which contains the same code in the console.
+</p>
+
+<div class="column" style="float:left; width:49%; border:1px solid; border-radius:10px">
+
+<ul>
+<li>Click on the <code>File/New file</code> button on the top menu bar to write a new script file</li>
+<li>A new file similar to <code>untitled0.py*</code> will be opened. Notice that
+
+<ul>
+<li><code>untitled0.py</code> is the script name</li>
+<li><code>.py</code> is the <b>file extension</b> which represents the file type</li>
+<li><code>*</code>   appears when the file is not saved after any editing</li>
+
+</ul></li>
+
+</ul>
+
+<div id="org347c365" class="figure">
+<p><img src="./spyder_editor.png" alt="spyder_editor.png" width="900px" />
+</p>
+</div>
+</div>
+
+<div class="column" style="float:right; width:49%; border:1px solid; border-radius:10px">
+
+<ul>
+<li>Click on the <code>File/Save</code> button to save it in a folder which is tracked by you
+
+<ul>
+<li><code>/c/Users/tutor/</code> is the working folder</li>
+<li><code>myscript.py</code> is the saved script</li>
+
+</ul></li>
+
+</ul>
+
+<div id="orgc4c28b6" class="figure">
+<p><img src="./spyder_files.png" alt="spyder_files.png" width="900px" />
+</p>
+</div>
+</div>
+</section>
+<section id="slide-org2a92bfd">
+<h3 id="org2a92bfd">Running the scripts</h3>
+<div class="column" style="float:left; width:49%; border:1px solid; border-radius:10px">
+
+<p>
+Press the play button or F5 key on the keyboard
+</p>
+
+
+<div id="orgf3430ef" class="figure">
+<p><img src="./spyder_run.png" alt="spyder_run.png" width="550px" />
+</p>
+</div>
+
+
+<p>
+Check
+</p>
+
+<ul>
+<li>the console if there is <b>errors</b></li>
+<li>the <b>variables</b> in the variable explorer</li>
+
+</ul>
+</div>
+
+<div class="column" style="float:right; width:49%; border:1px solid; border-radius:10px">
+
+<p>
+The variables can be accessed through the console
+</p>
+
+
+<div id="orge94a84d" class="figure">
+<p><img src="./spyder_console_check.png" alt="spyder_console_check.png" width="800px" />
+</p>
+</div>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org07652d1">
+<h2 id="org07652d1">Git-Bash Terminal</h2>
+<p>
+It is a terminal capable of running Bash commands, and other programs such as Git.
+</p>
+
+<div id="org7968964" class="figure">
+<p><img src="./git-bash.png" alt="git-bash.png" width="1200px" />
+</p>
+</div>
+
+<p>
+The common Bash commands used in tandem with Git program are
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">ls</td>
+<td class="org-left">(l)i(s)ts the contents of the current folder</td>
+</tr>
+
+<tr>
+<td class="org-left">cd</td>
+<td class="org-left">(c)hanges (d)irectory/folder</td>
+</tr>
+
+<tr>
+<td class="org-left">pwd</td>
+<td class="org-left">(p)rints (w)orking/current (d)irectory</td>
+</tr>
+
+<tr>
+<td class="org-left">clear</td>
+<td class="org-left">(clear)s terminal window</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="slide-org2f76ad2">
+<h3 id="org2f76ad2">First time configuring Git</h3>
+<p>
+After the installation and signing up in Github, we have to identify ourselves in Git system.
+</p>
+
+<ul>
+<li>write your Github login user name in <code>" "</code></li>
+<li>write your Github login email (student) in <code>" "</code></li>
+
+</ul>
+
+<p>
+This is done once.
+</p>
+
+<div id="org9eed6d3" class="figure">
+<p><img src="./git-config.png" alt="git-config.png" width="1200px" />
+</p>
+</div>
+</section>
+<section id="slide-org60696d6">
+<h3 id="org60696d6">A remote repository</h3>
+<p>
+A remote repository is some kind of a folder which generally holds the folders and files of a specific project.
+</p>
+
+<p>
+A sample remote repository on Github is shown,
+</p>
+
+<div id="orgb47aa21" class="figure">
+<p><img src="./github-repo.png" alt="github-repo.png" width="1000px" />
+</p>
+</div>
+
+<p>
+The address of the repository can be copied from the Code button.
+</p>
+</section>
+<section id="slide-org1e89ef1">
+<h3 id="org1e89ef1">Cloning a repository</h3>
+<p>
+A remote repository can be cloned/downloaded (<span class="underline">for once</span>) to our local computer.
+</p>
+
+<div class="column" style="float:left; width:49%; border:1px solid; border-radius:10px">
+<p>
+First, be aware of what is your current folder by issuing <code>pwd</code>!!
+</p>
+
+
+<div id="orga3cc3b8" class="figure">
+<p><img src="./home-pwd.png" alt="home-pwd.png" width="400px" />
+</p>
+</div>
+</div>
+
+<div class="column" style="float:right; width:49%; border:1px solid; border-radius:10px">
+<p>
+Then, <code>git clone</code> command is capable of clonning the repository as a folder to your current folder.
+</p>
+
+<div id="org7a1ab5e" class="figure">
+<p><img src="./clone.png" alt="clone.png" width="1000px" />
+</p>
+</div>
+</div>
+
+</section>
+<section id="slide-org1e89ef1-split">
+
+<div class="column" style="float:left; width:49%; border:1px solid; border-radius:10px;">
+<p>
+Check if the repository is downloaded by issuing <code>ls</code>,
+</p>
+
+<div id="org35eba70" class="figure">
+<p><img src="./check-repo.png" alt="check-repo.png" width="400px" />
+</p>
+</div>
+</div>
+
+<div class="column" style="float:right; width:49%; border:1px solid; border-radius:10px">
+<p>
+Then, go into the cloned repository by using <code>cd</code> command, and check the contents,
+</p>
+
+
+<div id="orgc13142d" class="figure">
+<p><img src="./cd-repo.png" alt="cd-repo.png" width="400px" />
+</p>
+</div>
+
+
+<div id="org5b9ef72" class="figure">
+<p><img src="./ls-repo.png" alt="ls-repo.png" width="600px" />
+</p>
+</div>
+
+<p>
+There is only two files which are as same as the ones in the remote repository!
+</p>
+
+</div>
+</section>
+<section id="slide-org0b8107f">
+<h3 id="org0b8107f">New code in the repo</h3>
+<p>
+In this section, we are going to create a new Python file and push the file to the remote repository.
+The algorithm would be,
+</p>
+<ol>
+<li>Open Spyder</li>
+<li>Go to the repository folder in Spyder</li>
+<li>Create a new file</li>
+<li>Save the file</li>
+<li>Stage the file with Git</li>
+<li>Commit the file with Git</li>
+<li>Push the file with Git</li>
+<li>Check the remote repository</li>
+
+</ol>
+</section>
+<section id="slide-orgd0d8168">
+<h4 id="orgd0d8168">Open and go to the repository folder in Spyder</h4>
+<p>
+Assuming Spyder is opened, navigate through the folders using the Files section in the top right window,
+</p>
+
+
+<div id="org64078a8" class="figure">
+<p><img src="./spyder-folder.png" alt="spyder-folder.png" width="1000px" />
+</p>
+</div>
+</section>
+<section id="slide-org993fd06">
+<h4 id="org993fd06">Create a new file</h4>
+<p>
+Let's create a new file,
+</p>
+
+
+<div id="orgfb2f3bc" class="figure">
+<p><img src="./spyder-create.png" alt="spyder-create.png" width="270px" />
+</p>
+</div>
+
+<p>
+Let's write some code in the editor,
+</p>
+
+
+<div id="org13d6e79" class="figure">
+<p><img src="./spyder-code.png" alt="spyder-code.png" width="600px" />
+</p>
+</div>
+</section>
+<section id="slide-org902720b">
+<h4 id="org902720b">Save the file</h4>
+<p>
+Then save it under the repository folder,
+</p>
+
+
+<div id="org8ec6bff" class="figure">
+<p><img src="./spyder-save1.png" alt="spyder-save1.png" width="270px" />
+</p>
+</div>
+
+
+<div id="org0053d62" class="figure">
+<p><img src="./spyder-save2.png" alt="spyder-save2.png" width="600px" />
+</p>
+</div>
+</section>
+<section id="slide-org936f132">
+<h4 id="org936f132">Stage the file with Git</h4>
+<p>
+First, check the saved file in the Git-Bash terminal,
+</p>
+
+
+<div id="org092942b" class="figure">
+<p><img src="./check-new-file.png" alt="check-new-file.png" width="600px" />
+</p>
+</div>
+
+<p>
+If it is there, then stage the file by issuing <code>git add</code>
+</p>
+
+
+<div id="orgd7cf1f3" class="figure">
+<p><img src="./stage-file.png" alt="stage-file.png" width="600px" />
+</p>
+</div>
+</section>
+<section id="slide-org21a5c8e">
+<h4 id="org21a5c8e">Commit the file with Git</h4>
+<p>
+Commit the staged file by issuing <code>git commit -m</code> with a comment at the end,
+</p>
+
+
+<div id="orgfbfc8fe" class="figure">
+<p><img src="./commit-file.png" alt="commit-file.png" width="600px" />
+</p>
+</div>
+</section>
+<section id="slide-org8081655">
+<h4 id="org8081655">Push the file with Git</h4>
+<p>
+Having committed the file, now we can push the local repository to Github by issuing <code>git push</code>,
+</p>
+
+
+<div id="org5a5b555" class="figure">
+<p><img src="./github-sync.png" alt="github-sync.png" width="500px" />
+</p>
+</div>
+
+<p>
+Notice that a pop-up window appeared, this is because of the first use of Git-Bash terminal. Press <span class="underline">Sign in with your browser</span>.
+</p>
+
+<p>
+You should see something similar,
+</p>
+
+<div id="org88eab12" class="figure">
+<p><img src="./github-success.png" alt="github-success.png" width="500px" />
+</p>
+</div>
+</section>
+<section id="slide-org398e21a">
+<h4 id="org398e21a">Check the remote repository</h4>
+<p>
+In Github we can see the recent pushed file,
+</p>
+
+
+<div id="org19f4681" class="figure">
+<p><img src="./github-check.png" alt="github-check.png" width="1000px" />
+</p>
+</div>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+slideNumber:"c/t", width:1920, height:1080, navigationMode:"linear", transition:"none",
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+
+});
+
+</script>
+</body>
+</html>
