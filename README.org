@@ -93,6 +93,8 @@ Email: ufuktan.baler@yeditepe.edu.tr
 | keyboard | mouse    | editor     | terminal | IDE      |
 | CPU      | memory   | disk       | network  | script   |
 | console  | variable | arithmetic | import   | library  |
-| module   |          |            |          |          |
+| module   | editor   | folder     | file     | git      |
+| stage    | commit   | push       | Github   | Git-Bash |
+| bash     | function | return     | float    | integer  |
 
 #+REVEAL_HTML: <div>
