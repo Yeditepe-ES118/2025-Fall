@@ -1,0 +1,22 @@
+#+TITLE: ES118 Lab #2
+#+AUTHOR: Ufuk Baler, MSc. & Assoc. Prof. Dr. Fethi Okyar
+#+DATE: 2025-10-06
+#+SUBTITLE: Python, and Git crash course
+#+STARTUP: overview
+#+REVEAL_THEME: simple
+#+REVEAL_INIT_OPTIONS: slideNumber:"c/t", width:1920, height:1080, navigationMode:"linear", transition:"none"
+#+REVEAL_TITLE_SLIDE: <h1>%t</h1> <h2>%s</h2> <h5>%a</h5>
+#+OPTIONS: timestamp:nil toc:1 num:nil reveal_global_footer:nil
+#+REVEAL_EXTRA_CSS: ../style.css
+#+LATEX_HEADER: \usepackage{amsmath}
+
+* Demonstration
+1. sign-up in Github with university email address
+2. git-bash identification
+3. accepting Github Classroom assignment
+4. writing and executing code in Spyder   
+5. pushing the assignment
+
+* Deliverables
+1. Github Classroom assignment
+2. quiz-lab-2 on Yulearn
