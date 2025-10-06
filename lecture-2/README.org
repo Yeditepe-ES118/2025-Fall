@@ -1,5 +1,5 @@
 #+TITLE: ES118 Lecture #2
-#+AUTHOR: Ufuk Baler, MSc. & Asst. Prof. Dr. Fethi Okyar
+#+AUTHOR: Ufuk Baler, MSc. & Assoc. Prof. Dr. Fethi Okyar
 #+SUBTITLE: Programming environments: Python, and Git
 #+STARTUP: overview
 #+REVEAL_THEME: simple
