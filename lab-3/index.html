@@ -235,20 +235,20 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgb163e8e">Demonstration</a></li>
-<li><a href="#orge9221d0">Deliverables</a></li>
+<li><a href="#orge5db12c">Demonstration</a></li>
+<li><a href="#org53f9493">Deliverables</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb163e8e" class="outline-2">
-<h2 id="orgb163e8e">Demonstration</h2>
-<div class="outline-text-2" id="text-orgb163e8e">
+<div id="outline-container-orge5db12c" class="outline-2">
+<h2 id="orge5db12c">Demonstration</h2>
+<div class="outline-text-2" id="text-orge5db12c">
 </div>
-<div id="outline-container-org44d1bd7" class="outline-3">
-<h3 id="org44d1bd7">Triangle problem</h3>
-<div class="outline-text-3" id="text-org44d1bd7">
+<div id="outline-container-org2aa271f" class="outline-3">
+<h3 id="org2aa271f">Triangle problem</h3>
+<div class="outline-text-3" id="text-org2aa271f">
 
-<div id="org2ae07d9" class="figure">
+<div id="org3ff2825" class="figure">
 <p><img src="./triangle.png" alt="triangle.png" />
 </p>
 </div>
@@ -261,43 +261,44 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orga38d255" class="outline-3">
-<h3 id="orga38d255">The relative error of \(\pi\) in computations</h3>
-<div class="outline-text-3" id="text-orga38d255">
-<p>
-Create a file called <code>lab3_problem2.py</code>, and do the following.
-</p>
-
-<p>
-Write a function called <code>surface_area</code>. The function computes the surface area of Earth using the formula,
-</p>
+<div id="outline-container-orgd01e532" class="outline-3">
+<h3 id="orgd01e532">The relative error of \(\pi\) in computations</h3>
+<div class="outline-text-3" id="text-orgd01e532">
+<ul class="org-ul">
+<li>Create a file called <code>lab3_problem2.py</code>, and do the following.</li>
+<li>Write a function called <code>surface_area</code> which accepts an argument called <code>pi_app</code>. <code>pi_app</code> is the approximate value of \(\pi\) up to certain digit, e.g. 3.14159.</li>
+<li>The function computes and returns the surface area of Earth using the formula,</li>
+</ul>
 
 <p>
 \[S_{obl} = 2\pi a^2 \Bigg( 1 + \frac{1-e^2}{e} \text{arctanh} (e) \Bigg)\]
 </p>
 
 <p>
-where \(a\) is the length of the semi-major axis that is 6378.137 km.
+where \(S_{obl}\) is the computed surface area of the earth, \(a\) is the length of the semi-major axis that is 6378.137 km, \(c\) is the length of the semi-minor axis that is 6356.752314245 km, and \[e^2 = 1 - \frac{c^2}{a^2}\]
 </p>
 
-<p>
-The function takes the approximate value of \(\pi\) as the argument.
-</p>
+<ul class="org-ul">
+<li>Write another function called <code>compute_error</code> which accepts <code>pi_app1</code> and <code>pi_app2</code> as the arguments. These arguments are two different approximate values of \(\pi\). For instance 3.14 and 3.1415 could be given as the argument values, respectively.</li>
+<li><code>compute_error</code> function shall utilize <code>surface_area</code> function to compute and return the relative error according to the formula below,</li>
+</ul>
 
 <p>
-Write another function called <code>compute_error</code>, which takes two approximate values of \(\pi\). It shall compute and return the error
 \[\text{Error} = \frac{|S_{obl,1} - S_{obl,2}|}{S_{obl,2}}\times 100 \%\]
 </p>
+
+<p>
+where \(S_{obl,1}\) and \(S_{obl,2}\) are computed using <code>pi_app1</code> and <code>pi_app2</code>, respectively.
+</p>
 </div>
 </div>
 </div>
-<div id="outline-container-orge9221d0" class="outline-2">
-<h2 id="orge9221d0">Deliverables</h2>
-<div class="outline-text-2" id="text-orge9221d0">
-<ol class="org-ol">
-<li>Github Classroom assignment</li>
-<li>quiz-lab-3 on Yulearn</li>
-</ol>
+<div id="outline-container-org53f9493" class="outline-2">
+<h2 id="org53f9493">Deliverables</h2>
+<div class="outline-text-2" id="text-org53f9493">
+<p>
+Github Classroom assignment
+</p>
 </div>
 </div>
 </div>

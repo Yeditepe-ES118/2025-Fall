@@ -21,19 +21,20 @@
 
 ** The relative error of $\pi$ in computations
 
-Create a file called ~lab3_problem2.py~, and do the following.
-
-Write a function called ~surface_area~. The function computes the surface area of Earth using the formula,
+- Create a file called ~lab3_problem2.py~, and do the following.
+- Write a function called ~surface_area~ which accepts an argument called ~pi_app~. ~pi_app~ is the approximate value of $\pi$ up to certain digit, e.g. 3.14159.
+- The function computes and returns the surface area of Earth using the formula,
 
 $$S_{obl} = 2\pi a^2 \Bigg( 1 + \frac{1-e^2}{e} \text{arctanh} (e) \Bigg)$$
 
-where $a$ is the length of the semi-major axis that is 6378.137 km.
+where $S_{obl}$ is the computed surface area of the earth, $a$ is the length of the semi-major axis that is 6378.137 km, $c$ is the length of the semi-minor axis that is 6356.752314245 km, and $$e^2 = 1 - \frac{c^2}{a^2}$$
 
-The function takes the approximate value of $\pi$ as the argument.
+- Write another function called ~compute_error~ which accepts ~pi_app1~ and ~pi_app2~ as the arguments. These arguments are two different approximate values of $\pi$. For instance 3.14 and 3.1415 could be given as the argument values, respectively.
+- ~compute_error~ function shall utilize ~surface_area~ function to compute and return the relative error according to the formula below,
 
-Write another function called ~compute_error~, which takes two approximate values of $\pi$. It shall compute and return the error
 $$\text{Error} = \frac{|S_{obl,1} - S_{obl,2}|}{S_{obl,2}}\times 100 \%$$
 
+where $S_{obl,1}$ and $S_{obl,2}$ are computed using ~pi_app1~ and ~pi_app2~, respectively.
+
 * Deliverables
-1. Github Classroom assignment
-2. quiz-lab-3 on Yulearn
+Github Classroom assignment
