@@ -1,0 +1,30 @@
+#+TITLE: Function and Keyword Lists 
+#+AUTHOR: Ufuk Baler, MSc. & Assoc. Prof. Dr. Fethi Okyar
+#+STARTUP: overview
+#+REVEAL_THEME: simple
+#+REVEAL_INIT_OPTIONS: slideNumber:"c/t", width:1920, height:1080, navigationMode:"linear", transition:"none"
+#+REVEAL_TITLE_SLIDE: <h1>%t</h1> <h2>%s</h2> <h5>%a</h5>
+#+OPTIONS: timestamp:nil toc:1 num:nil reveal_global_footer:nil
+#+REVEAL_EXTRA_CSS: ../style.css
+#+LATEX_HEADER: \usepackage{amsmath}
+#+MACRO: color @@html:<font color="$1">$2</font>@@
+#+HTML_HEAD: <link rel="stylesheet" href="../style.css" />
+
+* NumPy Functions
+Note that NumPy functions can be accessed after ~import numpy as np~. For instance, ~np.exp(3)~.
+| fix  | floor   | ceil      | round   |
+| sin  | arcsin  | cos       | arccos  |
+| tan  | arctan  | sinh      | arcsinh |
+| cosh | arccosh | tanh      | arctanh |
+| exp  | log     | log10     | sqrt    |
+| abs  | sign    | remainder |         |
+
+* Built-in Functions
+| print |
+
+
+* Keywords
+| def | return |
+
+
+

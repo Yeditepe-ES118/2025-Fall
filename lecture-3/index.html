@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>ES118 Lecture #3</title>
+<meta name="author" content="Ufuk Baler, MSc. &amp; Assoc. Prof. Dr. Fethi Okyar"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/simple.css" id="theme"/>
+
+<link rel="stylesheet" href="../style.css"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/npm/reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1>ES118 Lecture #3</h1> <h2>Data types, operator precedence, registers</h2> <h5>Ufuk Baler, MSc. &amp; Assoc. Prof. Dr. Fethi Okyar</h5>
+</section>
+<section id="sec-table-of-contents"><div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#/slide-org7e7753c">Data types</a></li>
+<li><a href="#/slide-orga98961e">Operator precedence</a></li>
+<li><a href="#/slide-org671c67f">Registers</a></li>
+<li><a href="#/slide-org28c9608">Implementation of mathematical expressions, and some equations</a></li>
+</ul>
+</div>
+</div>
+</section>
+<section>
+<section id="slide-org7e7753c">
+<h2 id="org7e7753c">Data types</h2>
+<div class="outline-text-2" id="text-org7e7753c">
+</div>
+</section>
+<section id="slide-orga609bae">
+<h3 id="orga609bae">Integer numbers</h3>
+<ul>
+<li><code>1</code></li>
+<li><code>-10</code></li>
+<li><code>23</code></li>
+
+</ul>
+
+<p>
+They are designated with <code>int</code> in Python.
+</p>
+</section>
+<section id="slide-org4641336">
+<h3 id="org4641336">Floating-point numbers</h3>
+<ul>
+<li><code>3.14</code></li>
+<li><code>-0.5</code></li>
+<li><code>3.2e-3</code></li>
+
+</ul>
+
+<p>
+They are designated with <code>float</code> in Python.  
+</p>
+</section>
+<section id="slide-orge22a867">
+<h3 id="orge22a867">Strings</h3>
+<ul>
+<li><code>"hello"</code></li>
+<li><code>'hello'</code></li>
+
+</ul>
+
+<p>
+They are designated with <code>str</code> in Python.  
+</p>
+</section>
+<section id="slide-org16eb682">
+<h3 id="org16eb682">Booleans</h3>
+<ul>
+<li><code>True</code></li>
+<li><code>False</code></li>
+
+</ul>
+
+<p>
+They are designated with <code>bool</code> in Python.    
+</p>
+</section>
+<section id="slide-orgac23e7e">
+<h3 id="orgac23e7e">Lists</h3>
+<ul>
+<li><code>[1,2,3]</code></li>
+<li><code>["hello", "world"]</code></li>
+<li><code>[True, False, True]</code></li>
+
+</ul>
+
+<p>
+They are designated with <code>list</code> in Python.      
+</p>
+</section>
+<section id="slide-org62bd85b">
+<h3 id="org62bd85b">Tuples</h3>
+<ul>
+<li><code>(1,2,3)</code></li>
+<li><code>("hello", "world")</code></li>
+<li><code>(True, False, True)</code></li>
+
+</ul>
+
+<p>
+They are designated with <code>tuple</code> in Python.    
+</p>
+</section>
+<section id="slide-org74a9c3d">
+<h3 id="org74a9c3d">Range</h3>
+<ul>
+<li><code>range(5)</code></li>
+<li><code>range(1,6)</code></li>
+<li><code>range(0,10,2)</code></li>
+
+</ul>
+
+<p>
+They are designated with <code>range</code> in Python.    
+</p>
+</section>
+<section id="slide-org56d1183">
+<h3 id="org56d1183">NoneType</h3>
+<ul>
+<li><code>None</code></li>
+
+</ul>
+
+<p>
+They are designated with <code>NoneType</code> in Python.  
+</p>
+</section>
+</section>
+<section>
+<section id="slide-orga98961e">
+<h2 id="orga98961e">Operator precedence</h2>
+<div class="outline-text-2" id="text-orga98961e">
+</div>
+</section>
+<section id="slide-org95ab80c">
+<h3 id="org95ab80c">Operators</h3>
+<p>
+Firstly, let's define the operators,
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Operation</th>
+<th scope="col" class="org-left">Character</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">addition</td>
+<td class="org-left">+</td>
+</tr>
+
+<tr>
+<td class="org-left">substraction</td>
+<td class="org-left">-</td>
+</tr>
+
+<tr>
+<td class="org-left">multiplication</td>
+<td class="org-left">*</td>
+</tr>
+
+<tr>
+<td class="org-left">division</td>
+<td class="org-left">/</td>
+</tr>
+
+<tr>
+<td class="org-left">exponentiation</td>
+<td class="org-left">**</td>
+</tr>
+
+<tr>
+<td class="org-left">modulus</td>
+<td class="org-left">%</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="slide-org44b9ec3">
+<h3 id="org44b9ec3">Term</h3>
+<p>
+The terms are <b>separated</b> by <code>+</code> or <code>-</code> sign.
+</p>
+
+<p>
+What are the terms in <code>1/9 + 3.2*z**10 - 4e3</code>?
+</p>
+</section>
+<section id="slide-org96a1262">
+<h3 id="org96a1262">Expression</h3>
+<ul>
+<li>An expression example: <code>1/9 + 7/80/100 + 3.2*z**10/2 - 1.4</code></li>
+<li>Exponentiation operation has precedence over multiplication and division</li>
+<li>Parantheses <b><code>()</code></b> have precedence over anything</li>
+
+</ul>
+<p>
+<code>1/(9 + (7/80)/100) + 3.2*z**10/2 - 1.4</code>
+</p>
+
+<p>
+What are the results of the given expressions above, if <code>z = 5.9</code>?
+</p>
+</section>
+</section>
+<section>
+<section id="slide-org671c67f">
+<h2 id="org671c67f">Registers</h2>
+<p>
+A computer can store numbers represented in <b>sequences of bits</b>.
+</p>
+<ul>
+<li>registers store bits (0 &amp; 1): <b>_ _ _ _ _ _ _ _</b></li>
+<li>leftmost bit represent the sign: <b>0 =&gt; positive</b> or <b>1 =&gt; negative</b></li>
+<li>remainder bits represent the <b>numerical value</b> of the integer</li>
+
+</ul>
+</section>
+<section id="slide-orge115f6e">
+<h3 id="orge115f6e">Integer values in registers</h3>
+<ul>
+<li>Ex.: 114 =&gt; \(114 = 1(2^6) + 1(2^5) + 1(2^4) + 0(2^3) + 0(2^2) + 1(2^1) + 0(2^0)\) =&gt; <b>0</b> 1 1 1 0 0 1 0</li>
+<li>Ex.: -114 =&gt;
+<ul>
+<li>First find the <b>absolute</b> value of -114 in binary representation: <b>0</b> 1 1 1 0 0 1 0</li>
+<li>Find the <b>complement</b>: <b>1</b> 0 0 0 1 1 0 1</li>
+<li>Add 1 to the complement: <b>1</b> 0 0 0 1 1 1 0</li>
+
+</ul></li>
+<li>Ex.: Sum 114 and -114 in binary representation: 0 0 0 0 0 0 0 0</li>
+
+</ul>
+</section>
+<section id="slide-orge115f6e-split">
+<ul>
+<li>Ex.: Compute the expression \(4-110\) in binary representation:
+<ul>
+<li>4 =&gt; <b>0</b> 0 0 0 0 1 0 0</li>
+<li>-110 =&gt;
+<ul>
+<li>absolute: <b>0</b> 1 1 0 1 1 1 0</li>
+<li>complement: <b>1</b> 0 0 1 0 0 0 1</li>
+<li>add 1: <b>1</b> 0 0 1 0 0 1 0</li>
+
+</ul></li>
+<li>sum the binary representations
+<ul>
+<li><b>1</b> 0 0 1 0 1 1 0 (remark: negative by the first digit)</li>
+
+</ul></li>
+<li>converting the binary result to its base-10 representation
+<ul>
+<li>complement: <b>0</b> 1 1 0 1 0 0 1</li>
+<li>add 1: <b>0</b> 1 1 0 1 0 1 0</li>
+<li>apply the sign: <b>1</b> 1 1 0 1 0 1 0 is -106</li>
+
+</ul></li>
+
+</ul></li>
+
+</ul>
+</section>
+<section id="slide-org9d96f28">
+<h3 id="org9d96f28">Floating-point number in registers (IEEE 754 standard)</h3>
+<p>
+<i>Remark</i>:
+Let's define a number in <b>scientific notation</b> in base-10.
+</p>
+
+<p>
+\(3650000 = 3.65 \times 10^6\)
+</p>
+<ul>
+<li>sign: <b>positive</b></li>
+<li>exponent: <b>6</b></li>
+<li>mantissa (significand): <b>3.65</b></li>
+
+</ul>
+</section>
+<section id="slide-org9d96f28-split">
+<p>
+Now, let's convert -40.500900 to a single precision (32-bit CPU) floating-point number:
+</p>
+<ul>
+<li>assign the sign bit: <b>1</b> for the negative</li>
+<li>convert <b>40</b> to binary number:
+<ul>
+<li>\[40 = 1(2^5) + 0(2^4) + 1(2^3) + 0(2^2) + 0(2^1) + 0(2^0)\] =&gt; 1 0 1 0 0 0</li>
+
+</ul></li>
+
+</ul>
+</section>
+<section id="slide-org9d96f28-split">
+<ul>
+<li>convert <b>0.500900</b> to binary:
+<ul>
+<li>0.500900 * 2 = 1.001800 =&gt; <b>1</b></li>
+<li>0.001800 * 2 = 0.003600 =&gt; <b>0</b></li>
+<li>0.003600 * 2 = 0.007200 =&gt; <b>0</b></li>
+<li>0.007200 * 2 = 0.014400 =&gt; <b>0</b></li>
+<li>0.014400 * 2 = 0.028800 =&gt; <b>0</b></li>
+<li>0.028800 * 2 = 0.057600 =&gt; <b>0</b></li>
+<li>0.057600 * 2 = 0.115200 =&gt; <b>0</b></li>
+<li>0.115200 * 2 = 0.230400 =&gt; <b>0</b></li>
+<li>0.230400 * 2 = 0.460800 =&gt; <b>0</b></li>
+<li>0.460800 * 2 = 0.921600 =&gt; <b>0</b></li>
+
+</ul></li>
+
+</ul>
+</section>
+<section id="slide-org9d96f28-split">
+<ul>
+<li>0.921600 * 2 = 1.843200 =&gt; <b>1</b></li>
+<li>0.843200 * 2 = 1.686400 =&gt; <b>1</b></li>
+<li>0.686400 * 2 = 1.372800 =&gt; <b>1</b></li>
+<li>0.372800 * 2 = 0.745600 =&gt; <b>0</b></li>
+<li>0.745600 * 2 = 1.491200 =&gt; <b>1</b></li>
+<li>0.491200 * 2 = 0.982400 =&gt; <b>0</b></li>
+<li>0.982400 * 2 = 1.964800 =&gt; <b>1</b></li>
+<li>0.964800 * 2 = 1.929600 =&gt; <b>1</b></li>
+<li>0.929600 * 2 = 1.859200 =&gt; <b>1</b></li>
+<li>0.859200 * 2 = 1.718400 =&gt; <b>1</b></li>
+<li>0.718400 * 2 = 1.436800 =&gt; <b>1</b></li>
+<li>0.436800 * 2 = 0.873600 =&gt; <b>0</b></li>
+<li>0.873600 * 2 = 1.747200 =&gt; <b>1</b></li>
+
+</ul>
+
+<p>
+Continue the algorithm until the <b>fraction is equal to 0</b>.
+</p>
+
+<p>
+In this case the fraction goes as <b>1000000000111010111110110111111010010000111111111001&#x2026;</b>
+</p>
+</section>
+<section id="slide-org9d96f28-split">
+<p>
+If 32-bit CPU is used, the exponent is converted to binary representation as follows,
+</p>
+<ul>
+<li>join the whole and fraction parts in binary 101000.10000000001110101111101&#x2026;</li>
+<li>represent the binary number in scientific notation \[1.01000100000000011101011 \times 2^5\]</li>
+<li>=&gt; exponent is +5</li>
+<li>5 <b>+ 127</b> = 132 (127 comes from the IEEE standard)</li>
+<li>Convert 132 to binary: \(132 = 1(2^7) + 0(2^6) + 0(2^5) + 0(2^4) + 0(2^3) + 1(2^2) + 0(2^1) + 0(2^0)\) =&gt; 1 0 0 0 0 1 0 0</li>
+
+</ul>
+</section>
+<section id="slide-org9d96f28-split">
+<p>
+As a result, -40.500900 is <b>approximately</b> represented in a 32-bit CPU as
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">sign</th>
+<th scope="col" class="org-right">exponent</th>
+<th scope="col" class="org-right">mantissa (after the floating-point)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">10000100</td>
+<td class="org-right">01000100000000011101011</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+<i>Verify</i>:
+If the floating-point data is converted to the decimal number,
+\(-1.01000100000000011101011 \times 2^5 =\)
+\(-[1(2^0) + 1(2^{-2}) + 1(2^{-6}) + 1(2^{-16}) + 1(2^{-17}) + 1(2^{-18})\)
+\(+ 1(2^{-20}) + 1(2^{-22}) + 1(2^{-23})] \times 2^5 = -40.500896\)
+</p>
+</section>
+<section id="slide-org9d96f28-split">
+
+<p>
+Therefore,
+</p>
+<ul>
+<li><b>NOT ALL</b> numbers are accurately represented with floating-point numbers</li>
+<li>Neverthless, floating-point number data type can <b>approximately represent</b> the real numbers.</li>
+<li>Regardless of their limitations, they are well suited for real world problems.</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org28c9608">
+<h2 id="org28c9608">Implementation of mathematical expressions, and some equations</h2>
+<p>
+Compute the variables below in NumPy
+</p>
+
+<ul>
+<li>\(y_1 = x^{-20.44} \cos(x^{-8} \log{(x)})\)</li>
+<li>$y<sub>2</sub> = x<sup>&pi; k</sup> e<sup>x-2</sup> $</li>
+<li>\(y_3 = -\Bigg( 5k - \frac{1}{4} \Bigg)\pi\)</li>
+<li>\(y_4 = \sqrt{z - 3}\)</li>
+
+</ul>
+</section>
+<section id="slide-org28c9608-split">
+
+<ul>
+<li>\(z_1 = \frac{1}{\sqrt{2(y^2 - x^2)}}\)</li>
+<li>\(z_2 = \frac{|x-1|}{\ln{(1/y)}\log{(6z)}}\)</li>
+<li>\(z_3 = \sin^{-1}\Bigg(\frac{7x}{\pi}\Bigg)\)</li>
+<li>\(z_4 = 20.2 (10)^{-17}\)</li>
+<li>\(z_5 = 8\pi (10)^4\)</li>
+
+</ul>
+</section>
+<section id="slide-org28c9608-split">
+
+
+<ul>
+<li>Find \(r\), when \(x=5\) and \(y=1\)
+<ul>
+<li>\(r = ((x-20)^{-2} + (y+10)^2)^{1/2}\)</li>
+
+</ul></li>
+<li>Find \(f\), when \(x=3\), \(y=\log{(8)}^4\), \(z=|\tan^{-1}{(0.1029)}|\), \(d=2\), and \(b=50\)
+<ul>
+<li>\(f = \frac{2^{{(x + (z+1)^{-3}/2)}^d}}{x+y+\sqrt{b}}\)</li>
+
+</ul></li>
+
+</ul>
+
+</section>
+<section id="slide-org28c9608-split">
+
+<ul>
+<li>Find \(c\), when \(x=3(10)^{-2}\), \(y=e^2\), \(g=9.81\) and \(v=|\cos^{-1}{(0.1029)}|\)
+<ul>
+<li>\(c = \frac{1}{9 g^{y^2 + \ln{(\sqrt{1-x})}}} - v^{1/4} + \Big|e^{\frac{2 \pi x}{\tan^{-1}(\pi y/180)}}\Big|\)</li>
+
+</ul></li>
+<li>Find the remainder of \(\frac{19}{3}\) and assign/equate to a variable called <code>k</code></li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+slideNumber:"c/t", width:1920, height:1080, navigationMode:"linear", transition:"none",
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+
+});
+
+</script>
+</body>
+</html>

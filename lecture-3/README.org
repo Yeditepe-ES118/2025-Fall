@@ -1,0 +1,213 @@
+#+TITLE: ES118 Lecture #3
+#+AUTHOR: Ufuk Baler, MSc. & Assoc. Prof. Dr. Fethi Okyar
+#+SUBTITLE: Data types, operator precedence, registers
+#+STARTUP: overview
+#+REVEAL_THEME: simple
+#+REVEAL_INIT_OPTIONS: slideNumber:"c/t", width:1920, height:1080, navigationMode:"linear", transition:"none"
+#+REVEAL_TITLE_SLIDE: <h1>%t</h1> <h2>%s</h2> <h5>%a</h5>
+#+OPTIONS: timestamp:nil toc:1 num:nil reveal_global_footer:nil
+#+REVEAL_EXTRA_CSS: ../style.css
+#+LATEX_HEADER: \usepackage{amsmath}
+#+MACRO: color @@html:<font color="$1">$2</font>@@
+
+* Data types
+** Integer numbers
+- ~1~
+- ~-10~
+- ~23~
+
+They are designated with ~int~ in Python.
+
+** Floating-point numbers
+- ~3.14~
+- ~-0.5~
+- ~3.2e-3~
+
+They are designated with ~float~ in Python.  
+
+** Strings
+- ~"hello"~
+- ~'hello'~
+
+They are designated with ~str~ in Python.  
+
+** Booleans
+- ~True~
+- ~False~
+
+They are designated with ~bool~ in Python.    
+
+** Lists
+- ~[1,2,3]~
+- ~["hello", "world"]~
+- ~[True, False, True]~
+
+They are designated with ~list~ in Python.      
+  
+** Tuples
+- ~(1,2,3)~
+- ~("hello", "world")~
+- ~(True, False, True)~
+
+They are designated with ~tuple~ in Python.    
+
+** Range
+- ~range(5)~
+- ~range(1,6)~
+- ~range(0,10,2)~
+
+They are designated with ~range~ in Python.    
+
+** NoneType
+- ~None~
+
+They are designated with ~NoneType~ in Python.  
+
+* Operator precedence
+** Operators
+Firstly, let's define the operators,
+| Operation      | Character |
+|----------------+-----------|
+| addition       | +         |
+| substraction   | -         |
+| multiplication | *         |
+| division       | /         |
+| exponentiation | **        |
+| modulus        | %         |
+
+** Term
+The terms are *separated* by ~+~ or ~-~ sign.
+
+What are the terms in ~1/9 + 3.2*z**10 - 4e3~?
+
+** Expression
+- An expression example: ~1/9 + 7/80/100 + 3.2*z**10/2 - 1.4~
+- Exponentiation operation has precedence over multiplication and division
+- Parantheses *~()~* have precedence over anything
+~1/(9 + (7/80)/100) + 3.2*z**10/2 - 1.4~
+
+What are the results of the given expressions above, if ~z = 5.9~?
+
+* Registers
+A computer can store numbers represented in *sequences of bits*.
+- registers store bits (0 & 1): *_ _ _ _ _ _ _ _*
+- leftmost bit represent the sign: *0 => positive* or *1 => negative*
+- remainder bits represent the *numerical value* of the integer
+
+** Integer values in registers
+- Ex.: 114 => $114 = 1(2^6) + 1(2^5) + 1(2^4) + 0(2^3) + 0(2^2) + 1(2^1) + 0(2^0)$ => *0* 1 1 1 0 0 1 0
+- Ex.: -114 =>
+  + First find the *absolute* value of -114 in binary representation: *0* 1 1 1 0 0 1 0
+  + Find the *complement*: *1* 0 0 0 1 1 0 1
+  + Add 1 to the complement: *1* 0 0 0 1 1 1 0
+- Ex.: Sum 114 and -114 in binary representation: 0 0 0 0 0 0 0 0
+#+REVEAL: split
+- Ex.: Compute the expression $4-110$ in binary representation:
+  + 4 => *0* 0 0 0 0 1 0 0
+  + -110 =>
+    * absolute: *0* 1 1 0 1 1 1 0
+    * complement: *1* 0 0 1 0 0 0 1
+    * add 1: *1* 0 0 1 0 0 1 0
+  + sum the binary representations
+    * *1* 0 0 1 0 1 1 0 (remark: negative by the first digit)
+  + converting the binary result to its base-10 representation
+    * complement: *0* 1 1 0 1 0 0 1
+    * add 1: *0* 1 1 0 1 0 1 0
+    * apply the sign: *1* 1 1 0 1 0 1 0 is -106
+
+** Floating-point number in registers (IEEE 754 standard)
+/Remark/:
+Let's define a number in *scientific notation* in base-10.
+
+$3650000 = 3.65 \times 10^6$
+- sign: *positive*
+- exponent: *6*
+- mantissa (significand): *3.65*
+#+REVEAL: split
+Now, let's convert -40.500900 to a single precision (32-bit CPU) floating-point number:
+- assign the sign bit: *1* for the negative
+- convert *40* to binary number:
+  + $$40 = 1(2^5) + 0(2^4) + 1(2^3) + 0(2^2) + 0(2^1) + 0(2^0)$$ => 1 0 1 0 0 0
+#+REVEAL: split
+- convert *0.500900* to binary:
+  + 0.500900 * 2 = 1.001800 => *1*
+  + 0.001800 * 2 = 0.003600 => *0*
+  + 0.003600 * 2 = 0.007200 => *0*
+  + 0.007200 * 2 = 0.014400 => *0*
+  + 0.014400 * 2 = 0.028800 => *0*
+  + 0.028800 * 2 = 0.057600 => *0*
+  + 0.057600 * 2 = 0.115200 => *0*
+  + 0.115200 * 2 = 0.230400 => *0*
+  + 0.230400 * 2 = 0.460800 => *0*
+  + 0.460800 * 2 = 0.921600 => *0*
+#+REVEAL: split
+  + 0.921600 * 2 = 1.843200 => *1*
+  + 0.843200 * 2 = 1.686400 => *1*
+  + 0.686400 * 2 = 1.372800 => *1*
+  + 0.372800 * 2 = 0.745600 => *0*
+  + 0.745600 * 2 = 1.491200 => *1*
+  + 0.491200 * 2 = 0.982400 => *0*
+  + 0.982400 * 2 = 1.964800 => *1*
+  + 0.964800 * 2 = 1.929600 => *1*
+  + 0.929600 * 2 = 1.859200 => *1*
+  + 0.859200 * 2 = 1.718400 => *1*
+  + 0.718400 * 2 = 1.436800 => *1*
+  + 0.436800 * 2 = 0.873600 => *0*
+  + 0.873600 * 2 = 1.747200 => *1*
+
+Continue the algorithm until the *fraction is equal to 0*.
+
+In this case the fraction goes as *1000000000111010111110110111111010010000111111111001...*
+#+REVEAL: split
+If 32-bit CPU is used, the exponent is converted to binary representation as follows,
+- join the whole and fraction parts in binary 101000.10000000001110101111101...
+- represent the binary number in scientific notation $$1.01000100000000011101011 \times 2^5$$
+- => exponent is +5
+- 5 *+ 127* = 132 (127 comes from the IEEE standard)
+- Convert 132 to binary: $132 = 1(2^7) + 0(2^6) + 0(2^5) + 0(2^4) + 0(2^3) + 1(2^2) + 0(2^1) + 0(2^0)$ => 1 0 0 0 0 1 0 0
+#+REVEAL: split
+As a result, -40.500900 is *approximately* represented in a 32-bit CPU as
+| sign | exponent | mantissa (after the floating-point) |
+|------+----------+-------------------------------------|
+|    1 | 10000100 |             01000100000000011101011 |
+
+/Verify/:
+If the floating-point data is converted to the decimal number,
+$-1.01000100000000011101011 \times 2^5 =$
+$-[1(2^0) + 1(2^{-2}) + 1(2^{-6}) + 1(2^{-16}) + 1(2^{-17}) + 1(2^{-18})$
+$+ 1(2^{-20}) + 1(2^{-22}) + 1(2^{-23})] \times 2^5 = -40.500896$
+#+REVEAL: split
+
+Therefore,
++ *NOT ALL* numbers are accurately represented with floating-point numbers
++ Neverthless, floating-point number data type can *approximately represent* the real numbers.
++ Regardless of their limitations, they are well suited for real world problems.
+
+
+* Implementation of mathematical expressions, and some equations
+Compute the variables below in NumPy
+
+- $y_1 = x^{-20.44} \cos(x^{-8} \log{(x)})$
+- $y_2 = x^{\pi k} e^{x-2} $
+- $y_3 = -\Bigg( 5k - \frac{1}{4} \Bigg)\pi$
+- $y_4 = \sqrt{z - 3}$
+#+REVEAL: split
+
+- $z_1 = \frac{1}{\sqrt{2(y^2 - x^2)}}$
+- $z_2 = \frac{|x-1|}{\ln{(1/y)}\log{(6z)}}$
+- $z_3 = \sin^{-1}\Bigg(\frac{7x}{\pi}\Bigg)$
+- $z_4 = 20.2 (10)^{-17}$
+- $z_5 = 8\pi (10)^4$
+#+REVEAL: split
+
+
++ Find $r$, when $x=5$ and $y=1$
+  - $r = ((x-20)^{-2} + (y+10)^2)^{1/2}$
++ Find $f$, when $x=3$, $y=\log{(8)}^4$, $z=|\tan^{-1}{(0.1029)}|$, $d=2$, and $b=50$
+  - $f = \frac{2^{{(x + (z+1)^{-3}/2)}^d}}{x+y+\sqrt{b}}$
+
+#+REVEAL: split
+
++ Find $c$, when $x=3(10)^{-2}$, $y=e^2$, $g=9.81$ and $v=|\cos^{-1}{(0.1029)}|$
+  - $c = \frac{1}{9 g^{y^2 + \ln{(\sqrt{1-x})}}} - v^{1/4} + \Big|e^{\frac{2 \pi x}{\tan^{-1}(\pi y/180)}}\Big|$
++ Find the remainder of $\frac{19}{3}$ and assign/equate to a variable called ~k~

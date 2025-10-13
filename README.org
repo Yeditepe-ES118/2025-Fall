@@ -27,21 +27,21 @@
   
 * Weekly plan
 #+REVEAL_HTML: <div style="font-size: 80%;">
-| Week | Lecture                                                         | Laboratory                                      | Dates       |
-|------+-----------------------------------------------------------------+-------------------------------------------------+-------------|
-|    1 | Course conduct, Interacting with an operating system            | Terminal crash course w/ AI                     | 09-29,10-01 |
-|    2 | Programming environments: Python, and Git                       | Python, and Git crash course                    | 10-06,10-08 |
-|    3 | Data types, operator precedence, registers                      | Basic calculations, Demo of built-in functions  | 10-13,10-15 |
-|    4 | Basic input and output, and defining functions                  | Writing user functions                          | 10-20,10-22 |
-|    5 | Logical operators, conditionals and loops                       | Cumhuriyet Bayramı                              | 10-27,10-29 |
-|    6 | Algorithm representations                                       | Debugging algorithms                            | 11-03,11-05 |
-|    7 | Midterm                                                         | Midterm review                                  | 11-10,11-12 |
-|    8 | Array definitions in Python                                     | Vector operations                               | 11-17,11-19 |
-|    9 | Indexing arrays                                                 | Finding mass centroid of particles              | 11-24,11-26 |
-|   10 | Plotting                                                        | Plotting crash course                           | 12-01,12-03 |
-|   11 | Generating data series for plotting, File read/write operations | Illustrating chronological data of a food chain | 12-08,12-10 |
-|   12 | Exercises                                                       | Bisection method (rootfinding)                  | 12-15,12-17 |
-|   13 | Review                                                          | Review                                          | 12-22,12-24 |
+| Week | Lecture                                                         | Laboratory                                            | Dates       |
+|------+-----------------------------------------------------------------+-------------------------------------------------------+-------------|
+|    1 | Course conduct, Interacting with an operating system            | Terminal crash course w/ AI                           | 09-29,10-01 |
+|    2 | Programming environments: Python, and Git                       | Python, and Git crash course                          | 10-06,10-08 |
+|    3 | Data types, operator precedence, registers                      | Basic calculations, Demo of elementary NumPyfunctions | 10-13,10-15 |
+|    4 | Basic input and output, and defining functions                  | Writing user functions                                | 10-20,10-22 |
+|    5 | Logical operators, conditionals and loops                       | Cumhuriyet Bayramı                                    | 10-27,10-29 |
+|    6 | Algorithm representations                                       | Debugging algorithms                                  | 11-03,11-05 |
+|    7 | Midterm                                                         | Midterm review                                        | 11-10,11-12 |
+|    8 | Array definitions in Python                                     | Vector operations                                     | 11-17,11-19 |
+|    9 | Indexing arrays                                                 | Finding mass centroid of particles                    | 11-24,11-26 |
+|   10 | Plotting                                                        | Plotting crash course                                 | 12-01,12-03 |
+|   11 | Generating data series for plotting, File read/write operations | Illustrating chronological data of a food chain       | 12-08,12-10 |
+|   12 | Exercises                                                       | Bisection method (rootfinding)                        | 12-15,12-17 |
+|   13 | Review                                                          | Review                                                | 12-22,12-24 |
 #+REVEAL_HTML: <div>
 
 * Resources
