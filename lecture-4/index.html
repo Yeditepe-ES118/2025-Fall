@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>ES118 Lecture #4</title>
+<meta name="author" content="Ufuk Baler, MSc. &amp; Assoc. Prof. Dr. Fethi Okyar"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/simple.css" id="theme"/>
+
+<link rel="stylesheet" href="../style.css"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/npm/reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1>ES118 Lecture #4</h1> <h2>Basic input and output, and defining functions</h2> <h5>Ufuk Baler, MSc. &amp; Assoc. Prof. Dr. Fethi Okyar</h5>
+</section>
+<section id="sec-table-of-contents"><div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#/slide-orgda441a9">Formatted output</a></li>
+<li><a href="#/slide-orgbd0981c">User input from the console</a></li>
+<li><a href="#/slide-org2bbcae8">Remarks on functions</a></li>
+</ul>
+</div>
+</div>
+</section>
+<section>
+<section id="slide-orgda441a9">
+<h2 id="orgda441a9">Formatted output</h2>
+<ul>
+<li>Strings are sequence of characters: <font color="green">"this is a string of characters"</font></li>
+<li>We can put different variables in strings by <b>formatting</b></li>
+<li>Numerical values can be used inside a string with its format <b>specified</b></li>
+
+</ul>
+
+</section>
+<section id="slide-orgda441a9-split">
+
+
+<div id="org252126a" class="figure">
+<p><img src="./display_myvalue_f.png" alt="display_myvalue_f.png" width="800px" />
+</p>
+</div>
+
+
+<div id="org3fdb019" class="figure">
+<p><img src="./display_myvalue_f_result.png" alt="display_myvalue_f_result.png" width="800px" />
+</p>
+</div>
+
+<p>
+Let's break it down:
+</p>
+<ul>
+<li><font color="green">%</font>: the specifier (first one)</li>
+<li><font color="green">7</font>: the <b>minimum</b> width of the numerical output</li>
+<li><font color="green">2</font>: the number of the fractional digits</li>
+<li><font color="green">.</font>: separates the whole and the fractional digits</li>
+<li><font color="green">f</font>: the floating-point notation</li>
+<li><font color="green">\n</font>: the newline character</li>
+<li><font color="green">%</font>: the separator (second one)</li>
+<li><font color="green">x</font>: the substituted variable</li>
+
+</ul>
+
+</section>
+<section id="slide-orgda441a9-split">
+
+<p>
+Let's edit <code>display_myvalue</code> function:
+</p>
+
+
+<div id="orgcb8a4aa" class="figure">
+<p><img src="./display_myvalue_e.png" alt="display_myvalue_e.png" width="800px" />
+</p>
+</div>
+
+
+
+<div id="org08fc1eb" class="figure">
+<p><img src="./display_myvalue_e_result.png" alt="display_myvalue_e_result.png" width="800px" />
+</p>
+</div>
+
+<p>
+Can you notice the difference from the previous definition?
+</p>
+
+</section>
+<section id="slide-orgda441a9-split">
+
+<p>
+Let's again edit <code>display_myvalue</code> function:
+</p>
+
+
+<div id="orgda8df27" class="figure">
+<p><img src="./display_myvalue_d.png" alt="display_myvalue_d.png" width="800px" />
+</p>
+</div>
+
+
+
+<div id="orga0125eb" class="figure">
+<p><img src="./display_myvalue_d_result.png" alt="display_myvalue_d_result.png" width="800px" />
+</p>
+</div>
+
+<p>
+Can you notice the difference from the previous definitions?
+</p>
+
+</section>
+<section id="slide-orgda441a9-split">
+
+<p>
+As a summary the formats are,
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">notation</th>
+<th scope="col" class="org-left">format</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">floating-point</td>
+<td class="org-left">f</td>
+</tr>
+
+<tr>
+<td class="org-left">scientific</td>
+<td class="org-left">e</td>
+</tr>
+
+<tr>
+<td class="org-left">integer</td>
+<td class="org-left">d</td>
+</tr>
+</tbody>
+</table>
+
+</section>
+<section id="slide-orgda441a9-split">
+
+<p>
+Multiple values can be printed:
+</p>
+
+
+<div id="org7e0d771" class="figure">
+<p><img src="./display_myvalues.png" alt="display_myvalues.png" width="1600px" />
+</p>
+</div>
+
+
+<div id="org6739ca9" class="figure">
+<p><img src="./display_myvalues_result.png" alt="display_myvalues_result.png" width="1000px" />
+</p>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgbd0981c">
+<h2 id="orgbd0981c">User input from the console</h2>
+<ul>
+<li>The user can input from the console</li>
+<li><code>input</code> function is utilized</li>
+<li>A message is given as the argument of <code>input</code></li>
+
+</ul>
+
+
+</section>
+<section id="slide-orgbd0981c-split">
+
+
+<div id="org1725555" class="figure">
+<p><img src="./take_square.png" alt="take_square.png" width="1000px" />
+</p>
+</div>
+
+
+<div id="orga625d4e" class="figure">
+<p><img src="./take_square_result.png" alt="take_square_result.png" width="1000px" />
+</p>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org2bbcae8">
+<h2 id="org2bbcae8">Remarks on functions</h2>
+<p>
+We've seen defining functions in assignments, and their use.
+</p>
+
+<p>
+Let's summarize and make some remarks.
+</p>
+
+</section>
+<section id="slide-org2bbcae8-split">
+
+<p>
+There can be four types of function definitions:
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-python"   ><code trim><span style="color: #a5bad7;">def</span> <span style="color: #fffafa;">myfunction</span>(parameters):
+    function-block
+    <span style="color: #a5bad7;">return</span> variables
+</code></pre>
+</div>
+
+<div class="org-src-container">
+
+<pre  class="src src-python"   ><code trim><span style="color: #a5bad7;">def</span> <span style="color: #fffafa;">myfunction</span>(parameters):
+    function-block
+</code></pre>
+</div>
+
+<div class="org-src-container">
+
+<pre  class="src src-python"   ><code trim><span style="color: #a5bad7;">def</span> <span style="color: #fffafa;">myfunction</span>():
+    function-block
+    <span style="color: #a5bad7;">return</span> variables
+</code></pre>
+</div>
+
+<div class="org-src-container">
+
+<pre  class="src src-python"   ><code trim><span style="color: #a5bad7;">def</span> <span style="color: #fffafa;">myfunction</span>():
+    function-block
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org2bbcae8-split">
+
+<ul>
+<li>a script may have several functions</li>
+<li>a function can be called in another function</li>
+<li>contents of the function are established by indentation</li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+slideNumber:"c/t", width:1920, height:1080, navigationMode:"linear", transition:"none",
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+
+});
+
+</script>
+</body>
+</html>
