@@ -79,6 +79,19 @@ Multiple values can be printed:
 [[./display_myvalues_result.png]]
 
 
+#+REVEAL: split
+
+Can we break a very long string?
+
+#+ATTR_HTML: :width 1600px
+[[./display_myvalues_long.png]]
+
+Yes, we can break it to multiple strings using the ~\~ character:
+
+#+ATTR_HTML: :width 1600px
+[[./string_break.png]]
+
+
 * User input from the console
 - The user can input from the console
 - ~input~ function is utilized
