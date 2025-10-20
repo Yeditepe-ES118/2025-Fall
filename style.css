@@ -59,3 +59,12 @@
 table, th, td {
     border: 1px solid;
 }
+
+
+
+.reveal pre code {
+    background-color: #262c34;
+    color: #dcefe1;
+    padding: 10px;
+    overflow-x: auto;
+}
