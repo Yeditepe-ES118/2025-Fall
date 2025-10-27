@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>ES118 Lecture #5</title>
+<meta name="author" content="Ufuk Baler, MSc. &amp; Assoc. Prof. Dr. Fethi Okyar"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/simple.css" id="theme"/>
+
+<link rel="stylesheet" href="../style.css"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/npm/reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1>ES118 Lecture #5</h1> <h2>Logical operators, conditionals and loops</h2> <h5>Ufuk Baler, MSc. &amp; Assoc. Prof. Dr. Fethi Okyar</h5>
+</section>
+<section id="sec-table-of-contents"><div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#/slide-org1ddb245">Loops and conditional use cases</a></li>
+<li><a href="#/slide-orged7ce67"><code>if</code> conditional</a></li>
+<li><a href="#/slide-orgb86d2cc"><code>else</code> conditional</a></li>
+<li><a href="#/slide-org9190632"><code>elif</code> conditional</a></li>
+<li><a href="#/slide-orgddb1513">Comparative operators</a></li>
+<li><a href="#/slide-org17e4d7d">Basic logical operators</a></li>
+<li><a href="#/slide-org419f8b0">Speed ticket example</a></li>
+<li><a href="#/slide-org6051232">Water state example</a></li>
+<li><a href="#/slide-org12c0e4a">The sign of a number example</a></li>
+<li><a href="#/slide-orgb97305a">"<code>for</code>" loop</a></li>
+<li><a href="#/slide-orgf09db5a">Temperature conversion example</a></li>
+<li><a href="#/slide-orgd4f47bb">Depth calculation example</a></li>
+<li><a href="#/slide-orgae9893d">Nesting for loops</a></li>
+<li><a href="#/slide-org0df4b52">"<code>while</code>" loop</a></li>
+<li><a href="#/slide-org668e23d">Free-fall example</a></li>
+<li><a href="#/slide-org444a1a6">Some remarks on loops</a></li>
+</ul>
+</div>
+</div>
+</section>
+<section>
+<section id="slide-org1ddb245">
+<h2 id="org1ddb245">Loops and conditional use cases</h2>
+<ul>
+<li>transient problems (time involved)
+<ul>
+<li>heat transfer: \(T\) temperature</li>
+<li>diffusion materials: \(\rho\) density</li>
+<li>dynamics of mechanical systems: \(\vec{F}\) forces, \(\vec{u}\) positions</li>
+<li>molecular dynamics: \(\vec{u}\) molecular positions</li>
+
+</ul></li>
+<li>finding roots of a function
+<ul>
+<li>bisection method</li>
+<li>Newton-Raphson method</li>
+
+</ul></li>
+
+<li><a href="https://www.youtube.com/watch?v=RYUr-5PYA7s">https://www.youtube.com/watch?v=RYUr-5PYA7s</a></li>
+<li><a href="https://www.youtube.com/watch?v=W2_21xculPM">https://www.youtube.com/watch?v=W2_21xculPM</a></li>
+<li><a href="https://www.youtube.com/watch?v=Gl9ZV8wCZtY">https://www.youtube.com/watch?v=Gl9ZV8wCZtY</a></li>
+<li><a href="https://www.youtube.com/shorts/LpHrso7mzhc">https://www.youtube.com/shorts/LpHrso7mzhc</a></li>
+<li><a href="https://www.youtube.com/watch?v=hKnO7dqkLjA">https://www.youtube.com/watch?v=hKnO7dqkLjA</a></li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-orged7ce67">
+<h2 id="orged7ce67"><code>if</code> conditional</h2>
+<p>
+The <code>if</code> conditional is a statement that evaluates a code block <b>when the given condition is satisfied</b>.
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-python"   ><code trim><span style="color: #a5bad7;">if</span> CONDITION:
+    CODE-BLOCK
+</code></pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgb86d2cc">
+<h2 id="orgb86d2cc"><code>else</code> conditional</h2>
+<p>
+When the CONDITION is <b>not</b> satisfied in <code>if</code>, then the code block written under <code>else</code> statement is evaluated,
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-python"   ><code trim><span style="color: #a5bad7;">if</span> CONDITION:
+    CODE-BLOCK-1
+<span style="color: #a5bad7;">else</span>:
+    CODE-BLOCK-2
+</code></pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org9190632">
+<h2 id="org9190632"><code>elif</code> conditional</h2>
+<p>
+<code>elif</code> comes from <b>(el)se (if)</b>
+</p>
+
+<p>
+The code under the <code>elif</code> statement is evaluated when the previous conditionals fail, and accepts a condition different from <code>else</code>.
+</p>
+<div class="column" style="float:left; width:49%; border:1px solid; boder-radius:10px">
+
+<div class="org-src-container">
+
+<pre  class="src src-python"   ><code trim><span style="color: #a5bad7;">if</span> CONDITION-1:
+    CODE-BLOCK-1
+<span style="color: #a5bad7;">elif</span> CONDITION-2:
+    CODE-BLOCK-2
+<span style="color: #a5bad7;">elif</span> CONDITION-3:
+    CODE-BLOCK-3
+.
+.
+.
+</code></pre>
+</div>
+</div>
+
+<div class="column" style="float:right; width:49%; border:1px solid; boder-radius:10px">
+<div class="org-src-container">
+
+<pre  class="src src-python"   ><code trim><span style="color: #a5bad7;">if</span> CONDITION-1:
+    CODE-BLOCK-1
+<span style="color: #a5bad7;">elif</span> CONDITION-2:
+    CODE-BLOCK-2
+.
+.
+.
+<span style="color: #a5bad7;">else</span>:
+    CODE-BLOCK-N
+</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgddb1513">
+<h2 id="orgddb1513">Comparative operators</h2>
+<p>
+We can compare two variables using the operators below,
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Name</th>
+<th scope="col" class="org-left">Operator</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">is <b>greater</b> than</td>
+<td class="org-left"><code>&gt;</code></td>
+</tr>
+
+<tr>
+<td class="org-left">is <b>less</b> than</td>
+<td class="org-left"><code>&lt;</code></td>
+</tr>
+
+<tr>
+<td class="org-left">is <b>greater</b> than or <b>equal</b></td>
+<td class="org-left"><code>&gt;=</code></td>
+</tr>
+
+<tr>
+<td class="org-left">is <b>less</b> than or <b>equal</b></td>
+<td class="org-left"><code>&lt;=</code></td>
+</tr>
+
+<tr>
+<td class="org-left">is <b>equal</b></td>
+<td class="org-left"><code>==</code></td>
+</tr>
+
+<tr>
+<td class="org-left">is <b>not equal</b></td>
+<td class="org-left"><code>!=</code></td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Result of the comparative operators is a <b>boolean value</b>: <code>True</code>, <code>False</code>
+</p>
+
+<p>
+Therefore, we can utilize them in <code>if</code> conditionals.
+</p>
+
+</section>
+<section id="slide-orgddb1513-split">
+
+
+<div id="org8562f28" class="figure">
+<p><img src="./comparison_example.png" alt="comparison_example.png" width="1300px" />
+</p>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org17e4d7d">
+<h2 id="org17e4d7d">Basic logical operators</h2>
+<p>
+Logical operators are as follows
+</p>
+<ul>
+<li>AND: <code>and</code></li>
+<li>OR: <code>or</code></li>
+<li>NOT: <code>not</code></li>
+
+</ul>
+
+<p>
+Result of the logical operators is a <b>boolean value</b>: <code>True</code>, <code>False</code>
+</p>
+
+<p>
+Therefore, we can also utilize them in <code>if</code> conditionals.
+</p>
+
+
+<div id="org4534461" class="figure">
+<p><img src="./logical_operator_example.png" alt="logical_operator_example.png" width="800px" />
+</p>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org419f8b0">
+<h2 id="org419f8b0">Speed ticket example</h2>
+<div class="column" style="float:center; width:100%; border:1px solid; boder-radius:10px">
+
+
+<div id="orgc9353c0" class="figure">
+<p><img src="./speed_ticket.png" alt="speed_ticket.png" width="500px" />
+</p>
+</div>
+
+<div id="org9bec9e9" class="figure">
+<p><img src="./speed_ticket_result.png" alt="speed_ticket_result.png" width="500px" />
+</p>
+</div>
+
+</div>
+
+<div class="column" style="float:center; width:100%; border:1px solid; boder-radius:10px">
+
+
+<div id="org145f8ee" class="figure">
+<p><img src="./speed_ticket2.png" alt="speed_ticket2.png" width="500px" />
+</p>
+</div>
+
+<div id="org0ddd6ec" class="figure">
+<p><img src="./speed_ticket2_result.png" alt="speed_ticket2_result.png" width="500px" />
+</p>
+</div>
+
+
+</div>
+
+
+<div class="column" style="float:center; width:100%; border:1px solid; boder-radius:10px">
+
+
+<div id="org2a25404" class="figure">
+<p><img src="./speed_ticket3.png" alt="speed_ticket3.png" width="500px" />
+</p>
+</div>
+
+<div id="org1ea9f03" class="figure">
+<p><img src="./speed_ticket3_result.png" alt="speed_ticket3_result.png" width="500px" />
+</p>
+</div>
+
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org6051232">
+<h2 id="org6051232">Water state example</h2>
+
+<div id="org3b81006" class="figure">
+<p><img src="./water_state.png" alt="water_state.png" width="900px" />
+</p>
+</div>
+
+<div id="org8478d3b" class="figure">
+<p><img src="./water_state_result.png" alt="water_state_result.png" width="600px" />
+</p>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org12c0e4a">
+<h2 id="org12c0e4a">The sign of a number example</h2>
+
+<div id="org14ab2fc" class="figure">
+<p><img src="./is_positive.png" alt="is_positive.png" width="900px" />
+</p>
+</div>
+
+<div id="org322a9be" class="figure">
+<p><img src="./is_positive_result.png" alt="is_positive_result.png" width="600px" />
+</p>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgb97305a">
+<h2 id="orgb97305a">"<code>for</code>" loop</h2>
+<p>
+A <code>for</code> loop <b>repeats</b> some code.
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-python"   ><code trim><span style="color: #a5bad7;">for</span> index <span style="color: #a5bad7;">in</span> sequence:
+  repeated code here
+</code></pre>
+</div>
+
+<ul>
+<li><code>index</code>: the iteration variable that respectively <b>holds</b> a value in the <code>sequence</code></li>
+<li><code>sequence</code>: an <b>iterable</b> object, e.g. a <code>range</code>, a list, a tuple</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-orgf09db5a">
+<h2 id="orgf09db5a">Temperature conversion example</h2>
+
+<div id="org63b3e5b" class="figure">
+<p><img src="./convert_temp.png" alt="convert_temp.png" width="800px" />
+</p>
+</div>
+
+<div id="org2cc3cef" class="figure">
+<p><img src="./convert_temp_result.png" alt="convert_temp_result.png" width="800px" />
+</p>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgd4f47bb">
+<h2 id="orgd4f47bb">Depth calculation example</h2>
+
+<div id="org3ea8c34" class="figure">
+<p><img src="./compute_pressure.png" alt="compute_pressure.png" width="800px" />
+</p>
+</div>
+
+<div id="org80312dd" class="figure">
+<p><img src="./compute_pressure_result.png" alt="compute_pressure_result.png" width="800px" />
+</p>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgae9893d">
+<h2 id="orgae9893d">Nesting for loops</h2>
+<div class="org-src-container">
+
+<pre  class="src src-python"   ><code trim><span style="color: #a5bad7;">for</span> index-1 <span style="color: #a5bad7;">in</span> sequence-1:
+  repeated code here
+  <span style="color: #a5bad7;">for</span> index-2 <span style="color: #a5bad7;">in</span> sequence-2:
+    repeated code here
+</code></pre>
+</div>
+
+
+<div id="org55c1c4e" class="figure">
+<p><img src="./coin_states.png" alt="coin_states.png" width="800px" />
+</p>
+</div>
+
+<div id="orge6586e7" class="figure">
+<p><img src="./coin_states_result.png" alt="coin_states_result.png" width="800px" />
+</p>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org0df4b52">
+<h2 id="org0df4b52">"<code>while</code>" loop</h2>
+<p>
+A <b><code>while</code></b> loop repeats some code as long as the given condition is <b>satisfied</b>.
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-python"   ><code trim><span style="color: #a5bad7;">while</span> condition:
+  repeated code here
+</code></pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org668e23d">
+<h2 id="org668e23d">Free-fall example</h2>
+<div class="column" style="float:left; width:59%; border:1px solid; boder-radius:10px">
+
+<div id="orgbac2771" class="figure">
+<p><img src="./compute_position.png" alt="compute_position.png" width="950px" />
+</p>
+</div>
+</div>
+
+<div class="column" style="float:right; width:39%; border:1px solid; boder-radius:10px">
+
+<div id="orgd88dcf2" class="figure">
+<p><img src="./compute_position_result.png" alt="compute_position_result.png" width="550px" />
+</p>
+</div>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org444a1a6">
+<h2 id="org444a1a6">Some remarks on loops</h2>
+<ul>
+<li>we can create nested loops</li>
+<li><code>break</code> used for terminating a "for" or a "while" loop</li>
+<li><code>continue</code> used for jumping an iteration of a "for" or a "while" loop</li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+slideNumber:"c/t", width:1920, height:1080, navigationMode:"linear", transition:"none",
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+
+});
+
+</script>
+</body>
+</html>
