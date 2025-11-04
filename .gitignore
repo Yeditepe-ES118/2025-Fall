@@ -1,1 +1,5 @@
 rubric.org
+*.log
+*.pdf
+*.aux
+*.tex
