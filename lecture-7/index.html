@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>ES118 Lecture #7</title>
+<meta name="author" content="Ufuk Baler, MSc. &amp; Assoc. Prof. Dr. Fethi Okyar"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/simple.css" id="theme"/>
+
+<link rel="stylesheet" href="../style.css"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/npm/reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1>ES118 Lecture #7</h1> <h2>Array definitions</h2> <h5>Ufuk Baler, MSc. &amp; Assoc. Prof. Dr. Fethi Okyar</h5>
+</section>
+<section id="sec-table-of-contents"><div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#/slide-orgeb84151">Use examples of arrays</a></li>
+<li><a href="#/slide-org4993e26">Difference of lists and NumPy arrays</a></li>
+<li><a href="#/slide-orgc09c142">Creating arrays</a></li>
+<li><a href="#/slide-org151ab4f">Functions for creating arrays</a></li>
+<li><a href="#/slide-org3ecbdc5">Basic visualization</a></li>
+</ul>
+</div>
+</div>
+</section>
+<section>
+<section id="slide-orgeb84151">
+<h2 id="orgeb84151">Use examples of arrays</h2>
+<ul>
+<li>values of an experiment/simulation at discrete time step</li>
+<li>X-Y-Z positions of an object</li>
+<li>pixels of an image</li>
+<li>&#x2026;</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org4993e26">
+<h2 id="org4993e26">Difference of lists and NumPy arrays</h2>
+<div class="column" style="float:left; width:47%; border:1px solid; boder-radius:10px">
+<p>
+<b>Python lists</b>
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-python"   ><code trim><span style="color: #eedd82;">my_list</span> = [0,1,2,3]
+</code></pre>
+</div>
+</div>
+
+<div class="column" style="float:right; width:51%; border:1px solid; boder-radius:10px">
+<p>
+<b>NumPy arrays</b>
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-python"   ><code trim><span style="color: #eedd82;">my_numpy_array</span> = np.array([0,1,2,3])
+</code></pre>
+</div>
+</div>
+
+<p>
+Why NumPy?:
+</p>
+<ul>
+<li>easy interface to operate on large amounts of data</li>
+<li>memory-efficient container that provides fast numerical operations</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-orgc09c142">
+<h2 id="orgc09c142">Creating arrays</h2>
+<div class="outline-text-2" id="text-orgc09c142">
+</div>
+</section>
+<section id="slide-orgb75e5a1">
+<h3 id="orgb75e5a1">Manual construction of arrays</h3>
+<div class="column" style="float:left; width:49%; border:1px solid; boder-radius:10px">
+<p>
+<b>1-D</b>:
+</p>
+
+<div id="org1c7840f" class="figure">
+<p><img src="./1-D_arrays.png" alt="1-D_arrays.png" width="800px" />
+</p>
+</div>
+</div>
+
+<div class="column" style="float:right; width:49%; border:1px solid; boder-radius:10px">
+<p>
+<b>2-D</b>:
+</p>
+
+<div id="orgc1bfe94" class="figure">
+<p><img src="./2-D_arrays.png" alt="2-D_arrays.png" width="800px" />
+</p>
+</div>
+</div>
+
+<div class="column" style="float:right; width:100%; border:1px solid; boder-radius:10px">
+<p>
+<b>Exercise: Simple arrays</b>
+</p>
+<ul>
+<li>Create a simple two dimensional array. First, redo the examples from above. And then create</li>
+
+</ul>
+<p>
+your own: how about odd numbers counting backwards on the first row, and even numbers on
+the second?
+</p>
+<ul>
+<li>Use the functions <code>len()</code>, <code>np.shape()</code> on these arrays. How do they relate to each other?</li>
+
+</ul>
+<p>
+And to the ndim attribute of the arrays?
+</p>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org151ab4f">
+<h2 id="org151ab4f">Functions for creating arrays</h2>
+<p>
+In practice, we rarely enter items one by one.
+</p>
+</section>
+<section id="slide-org187ae2b">
+<h3 id="org187ae2b">evenly spaced</h3>
+<p>
+<b>arange</b>:
+</p>
+
+<div id="org703d748" class="figure">
+<p><img src="./evenly_spaced1.png" alt="evenly_spaced1.png" width="800px" />
+</p>
+</div>
+
+<p>
+<b>linspace</b>:
+</p>
+
+<div id="org9a1b26b" class="figure">
+<p><img src="./evenly_spaced2.png" alt="evenly_spaced2.png" width="800px" />
+</p>
+</div>
+</section>
+<section id="slide-orgf04d047">
+<h3 id="orgf04d047">common arrays</h3>
+<div class="column" style="float:left; width:49%; border:1px solid; boder-radius:10px">
+<p>
+<b>ones &amp; zeros</b>:
+</p>
+
+<div id="org88dd8fc" class="figure">
+<p><img src="./ones-zeros.png" alt="ones-zeros.png" width="800px" />
+</p>
+</div>
+</div>
+
+<div class="column" style="float:right; width:49%; border:1px solid; boder-radius:10px">
+<p>
+<b>eye &amp; diag</b>:
+</p>
+
+<div id="org9b0d124" class="figure">
+<p><img src="./eye-diag.png" alt="eye-diag.png" width="800px" />
+</p>
+</div>
+</div>
+
+<div class="column" style="float:right; width:100%; border:1px solid; boder-radius:10px">
+<p>
+<b>Exercise: Creating arrays using functions</b>
+</p>
+
+<p>
+Experiment with <code>arange</code>, <code>linspace</code>, <code>ones</code>, <code>zeros</code>, <code>eye</code> and <code>diag</code>.
+</p>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org3ecbdc5">
+<h2 id="org3ecbdc5">Basic visualization</h2>
+<p>
+Let's create a function called <code>visualize</code> which will use two arrays <code>x</code> and <code>y</code> to create a basic plot:
+</p>
+
+<div class="column" style="float:left; width:49%; border:1px solid; boder-radius:10px">
+
+<div id="org452d831" class="figure">
+<p><img src="./visualize.png" alt="visualize.png" width="800px" />
+</p>
+</div>
+</div>
+
+<div class="column" style="float:right; width:49%; border:1px solid; boder-radius:10px">
+
+<div id="org4c742d4" class="figure">
+<p><img src="./visualize_plot.png" alt="visualize_plot.png" width="800px" />
+</p>
+</div>
+</div>
+
+
+</section>
+<section id="slide-org3ecbdc5-split">
+
+
+<div class="column" style="float:right; width:100%; border:1px solid; boder-radius:10px">
+<p>
+<b>Exercise: Simple visualizations</b>
+</p>
+
+<p>
+Plot some simple arrays: a cosine as a function.
+</p>
+</div>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+slideNumber:"c/t", width:1920, height:1080, navigationMode:"linear", transition:"none",
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+
+});
+
+</script>
+</body>
+</html>
