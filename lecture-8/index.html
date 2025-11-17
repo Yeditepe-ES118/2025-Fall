@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>ES118 Lecture #8</title>
+<meta name="author" content="Ufuk Baler, MSc. &amp; Assoc. Prof. Dr. Fethi Okyar"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/simple.css" id="theme"/>
+
+<link rel="stylesheet" href="../style.css"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/npm/reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1>ES118 Lecture #8</h1> <h2>Indexing arrays</h2> <h5>Ufuk Baler, MSc. &amp; Assoc. Prof. Dr. Fethi Okyar</h5>
+</section>
+<section id="sec-table-of-contents"><div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#/slide-orgeed7c76">Indexing</a></li>
+<li><a href="#/slide-orgaa4e612">Slicing</a></li>
+</ul>
+</div>
+</div>
+</section>
+<section>
+<section id="slide-orgeed7c76">
+<h2 id="orgeed7c76">Indexing</h2>
+<p>
+The items of a NumPy array can be accessed
+</p>
+
+<div class="column" style="float:left; width:49%; border:1px solid; boder-radius:10px">
+<p>
+<b>1-D</b>:
+</p>
+
+
+<div id="org4cc175e" class="figure">
+<p><img src="./1-D_array_access.png" alt="1-D_array_access.png" width="800px" />
+</p>
+</div>
+</div>
+
+<div class="column" style="float:right; width:49%; border:1px solid; boder-radius:10px">
+<p>
+<b>2-D</b>:
+</p>
+
+
+<div id="org85a7155" class="figure">
+<p><img src="./2-D_array_access.png" alt="2-D_array_access.png" width="800px" />
+</p>
+</div>
+</div>
+
+<div class="column" style="float:right; width:100%; border:1px solid; boder-radius:10px">
+<p>
+<b>Note</b>: In 2-D, the first dimension corresponds to <b>rows</b>, the second to <b>columns</b>
+</p>
+</div>
+
+</section>
+<section id="slide-orgeed7c76-split">
+<p>
+The items of a NumPy array can be assigned to a new value
+</p>
+
+
+<div id="org51dcc49" class="figure">
+<p><img src="./item_assignment.png" alt="item_assignment.png" width="800px" />
+</p>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgaa4e612">
+<h2 id="orgaa4e612">Slicing</h2>
+<p>
+Slicing is accessing a range of values of an array:
+</p>
+
+<div id="orgf909461" class="figure">
+<p><img src="./slicing1.png" alt="slicing1.png" width="800px" />
+</p>
+</div>
+
+<p>
+Last index is not included:
+</p>
+
+<div id="orgab94d23" class="figure">
+<p><img src="./slicing2.png" alt="slicing2.png" width="800px" />
+</p>
+</div>
+
+<p>
+All three slice components are not required, by default:
+<code>[start:end:step]</code> \(\rightarrow\) <code>[0:-1:1]</code>
+</p>
+
+
+<div id="orgc704815" class="figure">
+<p><img src="./slicing3.png" alt="slicing3.png" width="800px" />
+</p>
+</div>
+
+</section>
+<section id="slide-orgaa4e612-split">
+<p>
+<b>Exercise: Slicing a 2-D array</b>
+</p>
+
+<p>
+Define the array, then slice the depicted regions
+</p>
+
+<div id="org04e0028" class="figure">
+<p><img src="./slicing_exercise.png" alt="slicing_exercise.png" width="800px" />
+</p>
+</div>
+
+
+</section>
+<section id="slide-orgaa4e612-split">
+<p>
+We will continue next week.
+</p>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+slideNumber:"c/t", width:1920, height:1080, navigationMode:"linear", transition:"none",
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+
+});
+
+</script>
+</body>
+</html>
