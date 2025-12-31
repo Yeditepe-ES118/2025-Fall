@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>ES118 Lecture #11</title>
+<meta name="author" content="Ufuk Baler, MSc. &amp; Assoc. Prof. Dr. Fethi Okyar"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/simple.css" id="theme"/>
+
+<link rel="stylesheet" href="../style.css"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/npm/reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1>ES118 Lecture #11</h1> <h2>Generating data series for plotting, File read/write operations</h2> <h5>Ufuk Baler, MSc. &amp; Assoc. Prof. Dr. Fethi Okyar</h5>
+</section>
+<section id="sec-table-of-contents"><div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#/slide-org2fcfb2c">Stored data</a></li>
+<li><a href="#/slide-org7264a4f">Reading data from a file</a></li>
+<li><a href="#/slide-org733901a">Looking at the data</a></li>
+<li><a href="#/slide-org43286c3">Another reading parameter: <code>usecols</code></a></li>
+<li><a href="#/slide-org3300b9f">Writing data into text files</a></li>
+<li><a href="#/slide-org6dd3b77">Remarks</a></li>
+</ul>
+</div>
+</div>
+</section>
+<section>
+<section id="slide-org2fcfb2c">
+<h2 id="org2fcfb2c">Stored data</h2>
+<p>
+We generally work with numerical data where it is accessed from a text file such as <code>.csv</code> or <code>.txt</code>.
+</p>
+
+<p>
+A typical data file is composed of rows of structured data as follows,
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-text"   ><code trim># year  hare    lynx    carrot
+1900    30e3    4e3     48300
+1901    47.2e3  6.1e3   48200
+1902    70.2e3  9.8e3   41500
+1903    77.4e3  35.2e3  38200
+1904    36.3e3  59.4e3  40600
+1905    20.6e3  41.7e3  39800
+1906    18.1e3  19e3    38600
+1907    21.4e3  13e3    42300
+1908    22e3    8.3e3   44500
+1909    25.4e3  9.1e3   42100
+1910    27.1e3  7.4e3   46000
+1911    40.3e3  8e3     46800
+1912    57e3    12.3e3  43800
+1913    76.6e3  19.5e3  40900
+1914    52.3e3  45.7e3  39400
+1915    19.5e3  51.1e3  39000
+1916    11.2e3  29.7e3  36700
+1917    7.6e3   15.8e3  41800
+1918    14.6e3  9.7e3   43300
+1919    16.2e3  10.1e3  41300
+1920    24.7e3  8.6e3   47300
+</code></pre>
+</div>
+
+<p>
+This file consists of 21 lines
+</p>
+
+<p>
+There is a header line at top of the file. It is used for labeling the data at each column.
+</p>
+</section>
+</section>
+<section>
+<section id="slide-org7264a4f">
+<h2 id="org7264a4f">Reading data from a file</h2>
+<p>
+Two important information is needed before reading the file
+</p>
+<ul>
+<li>the filename of the data (<code>populations.txt</code> in this example)</li>
+<li>the folder where it resides in the computer (generally as same as the working <code>.py</code> file)</li>
+
+</ul>
+
+<p>
+Then we can use <code>np.loadtxt</code> function in our script
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-python"   ><code trim><span style="color: #eedd82;">data</span> = np.loadtxt(<span style="color: #ffa07a;">"populations.txt"</span>, skiprows=1)
+</code></pre>
+</div>
+
+<p>
+where <code>skiprows</code> parameter is needed to disregard the first line.
+</p>
+</section>
+</section>
+<section>
+<section id="slide-org733901a">
+<h2 id="org733901a">Looking at the data</h2>
+<p>
+After the reading operation we should see the loaded data as a NumPy array,
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-text"   ><code trim>array([[ 1900., 30000.,  4000., 48300.],
+       [ 1901., 47200.,  6100., 48200.],
+       [ 1902., 70200.,  9800., 41500.],
+       [ 1903., 77400., 35200., 38200.],
+       [ 1904., 36300., 59400., 40600.],
+       [ 1905., 20600., 41700., 39800.],
+       [ 1906., 18100., 19000., 38600.],
+       [ 1907., 21400., 13000., 42300.],
+       [ 1908., 22000.,  8300., 44500.],
+       [ 1909., 25400.,  9100., 42100.],
+       [ 1910., 27100.,  7400., 46000.],
+       [ 1911., 40300.,  8000., 46800.],
+       [ 1912., 57000., 12300., 43800.],
+       [ 1913., 76600., 19500., 40900.],
+       [ 1914., 52300., 45700., 39400.],
+       [ 1915., 19500., 51100., 39000.],
+       [ 1916., 11200., 29700., 36700.],
+       [ 1917.,  7600., 15800., 41800.],
+       [ 1918., 14600.,  9700., 43300.],
+       [ 1919., 16200., 10100., 41300.],
+       [ 1920., 24700.,  8600., 47300.]])
+</code></pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org43286c3">
+<h2 id="org43286c3">Another reading parameter: <code>usecols</code></h2>
+<p>
+<code>usecols</code> parameter is needed for selecting specific columns of data.
+</p>
+
+<p>
+In the below text we would like to select the temperature values,
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-text"   ><code trim>Scan    Time    101 (C) 102 (C) 103 (C) 104 (C) 105 (C)
+1       01.01.2005 07:38:21:154 32.814  33.237  33.08   40.619  20.272
+2       01.01.2005 07:38:22:138 32.899  33.253  33.181  40.572  20.288
+3       01.01.2005 07:38:23:138 32.97   33.29   33.218  40.546  20.267
+4       01.01.2005 07:38:24:138 32.997  33.341  33.186  40.519  20.267
+5       01.01.2005 07:38:25:138 33.058  33.343  33.26   40.469  20.267
+6       01.01.2005 07:38:26:138 33.087  33.375  33.295  40.443  20.269
+7       01.01.2005 07:38:27:138 33.135  33.415  33.343  40.409  20.291
+8       01.01.2005 07:38:28:138 33.18   33.463  33.383  40.391  20.256
+</code></pre>
+</div>
+
+<p>
+To extract the temperature values issue the command below according to the column indices of those values,
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-python"   ><code trim><span style="color: #eedd82;">data_temp</span> = np.loadtxt(<span style="color: #ffa07a;">"testdata.txt"</span>, skiprows=1, usecols=(3,4,5,6,7))
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org43286c3-split">
+
+<p>
+Resulting array for the temperatures is
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-text"   ><code trim>array([[32.814, 33.237, 33.08 , 40.619, 20.272],
+       [32.899, 33.253, 33.181, 40.572, 20.288],
+       [32.97 , 33.29 , 33.218, 40.546, 20.267],
+       [32.997, 33.341, 33.186, 40.519, 20.267],
+       [33.058, 33.343, 33.26 , 40.469, 20.267],
+       [33.087, 33.375, 33.295, 40.443, 20.269],
+       [33.135, 33.415, 33.343, 40.409, 20.291],
+       [33.18 , 33.463, 33.383, 40.391, 20.256]])
+</code></pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org3300b9f">
+<h2 id="org3300b9f">Writing data into text files</h2>
+<p>
+We generally write numerical data into text files.
+</p>
+
+<p>
+From the previous example let's create a 1D array where the each element corresponds to the average of the temperature values at each scan
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-python"   ><code trim><span style="color: #eedd82;">data_temp_mean</span> = np.mean(data_temp, axis=1)
+</code></pre>
+</div>
+
+<p>
+Let's write <code>data_temp_mean</code> array into a file called <code>average.txt</code>,
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-python"   ><code trim>np.savetxt(<span style="color: #ffa07a;">"average.txt"</span>, data_temp_mean)
+</code></pre>
+</div>
+
+<div class="column" style="float:left; width:49%; border:1px solid; boder-radius:10px">
+<p>
+The content of <code>average.txt</code> is as follows
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-text"   ><code trim>3.200439999999999685e+01
+3.203860000000000241e+01
+3.205819999999999936e+01
+3.206199999999999761e+01
+3.207939999999999969e+01
+3.209380000000000166e+01
+3.211860000000000070e+01
+3.213459999999999894e+01
+</code></pre>
+</div>
+</div>
+
+<div class="column" style="float:right; width:49%; border:1px solid; boder-radius:10px">
+<p>
+You can check the written file using a simple text editor, such as notepad.
+</p>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org6dd3b77">
+<h2 id="org6dd3b77">Remarks</h2>
+<ul>
+<li>File read/write operations can be done in or out of function definitions</li>
+<li>2D arrays can also be written into text files</li>
+<li><code>.csv</code> files are very similar to <code>.txt</code> files, but the values inside <code>.csv</code> are generally separated by commas</li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+slideNumber:"c/t", width:1920, height:1080, navigationMode:"linear", transition:"none",
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+
+});
+
+</script>
+</body>
+</html>

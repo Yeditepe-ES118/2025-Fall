@@ -1,0 +1,160 @@
+#+TITLE: ES118 Lecture #11
+#+AUTHOR: Ufuk Baler, MSc. & Assoc. Prof. Dr. Fethi Okyar
+#+SUBTITLE: Generating data series for plotting, File read/write operations
+#+STARTUP: overview
+#+REVEAL_THEME: simple
+#+REVEAL_INIT_OPTIONS: slideNumber:"c/t", width:1920, height:1080, navigationMode:"linear", transition:"none"
+#+REVEAL_TITLE_SLIDE: <h1>%t</h1> <h2>%s</h2> <h5>%a</h5>
+#+OPTIONS: timestamp:nil toc:1 num:nil reveal_global_footer:nil
+#+REVEAL_EXTRA_CSS: ../style.css
+#+LATEX_HEADER: \usepackage{amsmath}
+#+MACRO: color @@html:<font color="$1">$2</font>@@
+
+* Stored data
+We generally work with numerical data where it is accessed from a text file such as ~.csv~ or ~.txt~.
+
+A typical data file is composed of rows of structured data as follows,
+
+#+BEGIN_SRC text
+# year	hare	lynx	carrot
+1900	30e3	4e3	48300
+1901	47.2e3	6.1e3	48200
+1902	70.2e3	9.8e3	41500
+1903	77.4e3	35.2e3	38200
+1904	36.3e3	59.4e3	40600
+1905	20.6e3	41.7e3	39800
+1906	18.1e3	19e3	38600
+1907	21.4e3	13e3	42300
+1908	22e3	8.3e3	44500
+1909	25.4e3	9.1e3	42100
+1910	27.1e3	7.4e3	46000
+1911	40.3e3	8e3	46800
+1912	57e3	12.3e3	43800
+1913	76.6e3	19.5e3	40900
+1914	52.3e3	45.7e3	39400
+1915	19.5e3	51.1e3	39000
+1916	11.2e3	29.7e3	36700
+1917	7.6e3	15.8e3	41800
+1918	14.6e3	9.7e3	43300
+1919	16.2e3	10.1e3	41300
+1920	24.7e3	8.6e3	47300
+#+END_SRC
+
+This file consists of 21 lines
+
+There is a header line at top of the file. It is used for labeling the data at each column.
+
+* Reading data from a file
+Two important information is needed before reading the file
+- the filename of the data (~populations.txt~ in this example)
+- the folder where it resides in the computer (generally as same as the working ~.py~ file)
+
+Then we can use ~np.loadtxt~ function in our script
+
+#+BEGIN_SRC python
+data = np.loadtxt("populations.txt", skiprows=1)
+#+END_SRC
+
+where ~skiprows~ parameter is needed to disregard the first line.
+
+* Looking at the data
+After the reading operation we should see the loaded data as a NumPy array,
+
+#+BEGIN_SRC text
+array([[ 1900., 30000.,  4000., 48300.],
+       [ 1901., 47200.,  6100., 48200.],
+       [ 1902., 70200.,  9800., 41500.],
+       [ 1903., 77400., 35200., 38200.],
+       [ 1904., 36300., 59400., 40600.],
+       [ 1905., 20600., 41700., 39800.],
+       [ 1906., 18100., 19000., 38600.],
+       [ 1907., 21400., 13000., 42300.],
+       [ 1908., 22000.,  8300., 44500.],
+       [ 1909., 25400.,  9100., 42100.],
+       [ 1910., 27100.,  7400., 46000.],
+       [ 1911., 40300.,  8000., 46800.],
+       [ 1912., 57000., 12300., 43800.],
+       [ 1913., 76600., 19500., 40900.],
+       [ 1914., 52300., 45700., 39400.],
+       [ 1915., 19500., 51100., 39000.],
+       [ 1916., 11200., 29700., 36700.],
+       [ 1917.,  7600., 15800., 41800.],
+       [ 1918., 14600.,  9700., 43300.],
+       [ 1919., 16200., 10100., 41300.],
+       [ 1920., 24700.,  8600., 47300.]])
+#+END_SRC
+
+* Another reading parameter: ~usecols~
+~usecols~ parameter is needed for selecting specific columns of data.
+
+In the below text we would like to select the temperature values,
+#+BEGIN_SRC text
+Scan	Time	101 (C)	102 (C)	103 (C)	104 (C)	105 (C)
+1	01.01.2005 07:38:21:154	32.814	33.237	33.08	40.619	20.272
+2	01.01.2005 07:38:22:138	32.899	33.253	33.181	40.572	20.288
+3	01.01.2005 07:38:23:138	32.97	33.29	33.218	40.546	20.267
+4	01.01.2005 07:38:24:138	32.997	33.341	33.186	40.519	20.267
+5	01.01.2005 07:38:25:138	33.058	33.343	33.26	40.469	20.267
+6	01.01.2005 07:38:26:138	33.087	33.375	33.295	40.443	20.269
+7	01.01.2005 07:38:27:138	33.135	33.415	33.343	40.409	20.291
+8	01.01.2005 07:38:28:138	33.18	33.463	33.383	40.391	20.256
+#+END_SRC
+
+To extract the temperature values issue the command below according to the column indices of those values,
+#+BEGIN_SRC python
+data_temp = np.loadtxt("testdata.txt", skiprows=1, usecols=(3,4,5,6,7))
+#+END_SRC
+
+#+REVEAL: split
+
+Resulting array for the temperatures is
+#+BEGIN_SRC text
+array([[32.814, 33.237, 33.08 , 40.619, 20.272],
+       [32.899, 33.253, 33.181, 40.572, 20.288],
+       [32.97 , 33.29 , 33.218, 40.546, 20.267],
+       [32.997, 33.341, 33.186, 40.519, 20.267],
+       [33.058, 33.343, 33.26 , 40.469, 20.267],
+       [33.087, 33.375, 33.295, 40.443, 20.269],
+       [33.135, 33.415, 33.343, 40.409, 20.291],
+       [33.18 , 33.463, 33.383, 40.391, 20.256]])
+#+END_SRC
+
+* Writing data into text files
+We generally write numerical data into text files.
+
+From the previous example let's create a 1D array where the each element corresponds to the average of the temperature values at each scan
+
+#+BEGIN_SRC python
+data_temp_mean = np.mean(data_temp, axis=1)
+#+END_SRC
+
+Let's write ~data_temp_mean~ array into a file called ~average.txt~,
+
+#+BEGIN_SRC python
+np.savetxt("average.txt", data_temp_mean)
+#+END_SRC
+
+#+REVEAL_HTML: <div class="column" style="float:left; width:49%; border:1px solid; boder-radius:10px">
+The content of ~average.txt~ is as follows
+
+#+BEGIN_SRC text
+3.200439999999999685e+01
+3.203860000000000241e+01
+3.205819999999999936e+01
+3.206199999999999761e+01
+3.207939999999999969e+01
+3.209380000000000166e+01
+3.211860000000000070e+01
+3.213459999999999894e+01
+#+END_SRC
+#+REVEAL_HTML: </div>
+
+#+REVEAL_HTML: <div class="column" style="float:right; width:49%; border:1px solid; boder-radius:10px">
+You can check the written file using a simple text editor, such as notepad.
+#+REVEAL_HTML: </div>
+
+
+* Remarks
+- File read/write operations can be done in or out of function definitions
+- 2D arrays can also be written into text files
+- ~.csv~ files are very similar to ~.txt~ files, but the values inside ~.csv~ are generally separated by commas

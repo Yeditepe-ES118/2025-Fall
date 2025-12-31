@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>ES118 Lecture #10</title>
+<meta name="author" content="Ufuk Baler, MSc. &amp; Assoc. Prof. Dr. Fethi Okyar"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/simple.css" id="theme"/>
+
+<link rel="stylesheet" href="../style.css"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/npm/reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1>ES118 Lecture #10</h1> <h2>Plotting</h2> <h5>Ufuk Baler, MSc. &amp; Assoc. Prof. Dr. Fethi Okyar</h5>
+</section>
+<section id="sec-table-of-contents"><div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#/slide-org594b877">Motivation</a></li>
+<li><a href="#/slide-org2a0403c">Single 2-D plot</a></li>
+<li><a href="#/slide-org401e316">Overlay plots</a></li>
+<li><a href="#/slide-org04b58e3">Subplotting</a></li>
+<li><a href="#/slide-orgfeca2fb">Examples</a></li>
+</ul>
+</div>
+</div>
+</section>
+<section>
+<section id="slide-org594b877">
+<h2 id="org594b877">Motivation</h2>
+<div class="column" style="float:left; width:50%">
+
+<div id="orgbc820ef" class="figure">
+<p><img src="./motivation1.png" alt="motivation1.png" width="900px" />
+</p>
+</div>
+</div>
+
+
+<div class="column" style="float:right; width:50%">
+
+<div id="orga0374eb" class="figure">
+<p><img src="./motivation2.png" alt="motivation2.png" class="fragment (appear)" width="900px" />
+</p>
+</div>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org2a0403c">
+<h2 id="org2a0403c">Single 2-D plot</h2>
+<div class="outline-text-2" id="text-org2a0403c">
+</div>
+</section>
+<section id="slide-org650ff6d">
+<h3 id="org650ff6d">Preliminaries</h3>
+<ul>
+<li>We have to first import necessary libraries</li>
+<li>Matplotlib is used for plotting</li>
+<li>Plotting requires data to be visualized, therefore NumPy is suitable for that purpose</li>
+
+</ul>
+<div class="org-src-container">
+
+<pre  class="src src-python"   ><code trim><span style="color: #00ffff;">import</span> matplotlib.pyplot <span style="color: #00ffff;">as</span> plt
+<span style="color: #00ffff;">import</span> numpy <span style="color: #00ffff;">as</span> np
+
+<span style="color: #ff7f24;"># </span><span style="color: #ff7f24;">...</span>
+</code></pre>
+</div>
+</section>
+<section id="slide-orgefee8bc">
+<h3 id="orgefee8bc">Changing figure size</h3>
+<div class="column" style="float:left; width:30%">
+<ul>
+<li>Sometimes the figure needs to be resized</li>
+<li>Use <code>figsize</code> argument in <code>plt.figure()</code></li>
+
+</ul>
+
+</div>
+<div class="column" style="float:right; width:70%">
+<div class="org-src-container">
+
+<pre  class="src src-python"   ><code trim><span style="color: #00ffff;">import</span> matplotlib.pyplot <span style="color: #00ffff;">as</span> plt
+<span style="color: #00ffff;">import</span> numpy <span style="color: #00ffff;">as</span> np
+
+plt.figure(figsize=(12, 8)) <span style="color: #ff7f24;"># </span><span style="color: #ff7f24;">height vs width
+</span>
+<span style="color: #ff7f24;"># </span><span style="color: #ff7f24;">...</span>
+</code></pre>
+</div>
+</div>
+</section>
+<section id="slide-org0e0d09e">
+<h3 id="org0e0d09e">The <code>plot</code> function</h3>
+<div class="column" style="float:left; width:50%">
+<ul>
+<li><code>plot</code>: plots any x and y pairs</li>
+
+</ul>
+<div class="org-src-container">
+
+<pre  class="src src-python"   ><code trim>plt.plot(x, y, <span style="color: #ffa07a;">'style-option'</span>)
+</code></pre>
+</div>
+<p>
+where
+</p>
+<ul>
+<li><code>x</code>: 1-D array</li>
+<li><code>y</code>: 1-D array</li>
+<li><code>'style-option'</code> specifies
+<ul>
+<li>the color</li>
+<li>line style</li>
+<li>the point-marker style</li>
+
+</ul></li>
+
+</ul>
+</div>
+
+<div class="column" style="float:right; width:50%">
+<p>
+<span class="underline">Examples</span>:
+</p>
+<ul>
+<li><code>plt.plot(x,y)</code>: plots x versus y with a solid line</li>
+<li><code>plt.plot(x,y,'--')</code>: plots x versus y with a dashed line</li>
+<li><code>plt.plot(x,y,'r--')</code>: plots x versus y with a red dashed line</li>
+<li><code>plt.plot(x,y,'r^')</code>: plots x versus y with red triangles</li>
+<li><code>plt.plot(x,y,'r^-')</code>: plots x versus y with red triangles on a solid line</li>
+
+</ul>
+</div>
+</section>
+<section id="slide-org36a2c9c">
+<h3 id="org36a2c9c">Single 2-D plot example</h3>
+<div class="column" style="float:left; width:60%">
+<div class="org-src-container">
+
+<pre  class="src src-python"   ><code trim><span style="color: #00ffff;">import</span> numpy <span style="color: #00ffff;">as</span> np
+<span style="color: #00ffff;">import</span> matplotlib.pyplot <span style="color: #00ffff;">as</span> plt
+
+<span style="color: #ff7f24;"># </span><span style="color: #ff7f24;">generate x data:
+</span><span style="color: #eedd82;">t</span> = np.linspace(0,2*np.pi,100)
+<span style="color: #ff7f24;"># </span><span style="color: #ff7f24;">generate y data:
+</span><span style="color: #eedd82;">f</span> = np.sin(t)
+<span style="color: #ff7f24;"># </span><span style="color: #ff7f24;">plot with a solid line:
+</span>plt.plot(t, f)
+</code></pre>
+</div>
+</div>
+
+<div class="column" style="float:right; width:40%">
+
+<div id="org3d4e18d" class="figure">
+<p><img src="./example1.png" alt="example1.png" />
+</p>
+</div>
+</div>
+</section>
+<section id="slide-org588f918">
+<h3 id="org588f918"><code>'style-option'</code></h3>
+<div class="column" style="float:left; width:50%">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Color</th>
+<th scope="col" class="org-left">Line</th>
+<th scope="col" class="org-left">Marker</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>y</code> yellow</td>
+<td class="org-left"><code>-</code> solid</td>
+<td class="org-left"><code>+</code> plus sign</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>m</code> magenta</td>
+<td class="org-left"><code>--</code> dashed</td>
+<td class="org-left"><code>o</code> circle</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>c</code> cyan</td>
+<td class="org-left"><code>:</code> dotted</td>
+<td class="org-left"><code>*</code> asterisk</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>r</code> red</td>
+<td class="org-left"><code>-.</code> dash-dot</td>
+<td class="org-left"><code>x</code> x-mark</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>g</code> green</td>
+<td class="org-left"><code>none</code> no line</td>
+<td class="org-left"><code>.</code> point</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>b</code> blue</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>^</code> up triangle</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>w</code> white</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>s</code> square</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>k</code> black</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>d</code> diamond</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="column" style="float:right; width:50%">
+<ul>
+<li><code>plt.plot(x,y,'r')</code>: plots x versus y with a <b>red solid</b> line</li>
+<li><code>plt.plot(x,y,':')</code>: plots x versus y with a <b>dotted</b> line</li>
+<li><code>plt.plot(x,y,'b--')</code>: plots x versus y with a <b>blue dashed</b> line</li>
+<li><code>plt.plot(x,y,'+')</code>: plots x versus y as <b>unconnected points marked by +</b></li>
+
+</ul>
+</div>
+</section>
+<section id="slide-org57efdc3">
+<h3 id="org57efdc3"><code>'style-option'</code> example</h3>
+<div class="column" style="float:left; width:60%">
+<div class="org-src-container">
+
+<pre  class="src src-python"   ><code trim><span style="color: #00ffff;">import</span> numpy <span style="color: #00ffff;">as</span> np
+<span style="color: #00ffff;">import</span> matplotlib.pyplot <span style="color: #00ffff;">as</span> plt
+
+<span style="color: #ff7f24;"># </span><span style="color: #ff7f24;">generate x data:
+</span><span style="color: #eedd82;">t</span> = np.linspace(0,2*np.pi,100)
+<span style="color: #ff7f24;"># </span><span style="color: #ff7f24;">generate y data:
+</span><span style="color: #eedd82;">f</span> = np.sin(t)
+<span style="color: #ff7f24;"># </span><span style="color: #ff7f24;">plot with connected red squares
+</span>plt.plot(t, f, <span style="color: #ffa07a;">"rs-"</span>)
+</code></pre>
+</div>
+</div>
+
+<div class="column" style="float:right; width:40%">
+
+<div id="org8640d0b" class="figure">
+<p><img src="./example2.png" alt="example2.png" />
+</p>
+</div>
+</div>
+</section>
+<section id="slide-org7751e11">
+<h3 id="org7751e11">Labels, title, and other text objects</h3>
+<div class="column" style="float:left; width:60%">
+<ul>
+<li><code>plt.xlabel('x (m)')</code>: labels the x-axis with <code>x (m)</code></li>
+<li><code>plt.ylabel('p (Pa)')</code>: labels the y-axis with <code>p (Pa)</code></li>
+<li><code>plt.title('Pressure Variation')</code>: titles the plot with <code>Pressure Variation</code></li>
+<li><code>plt.text(5,-180,'Note this dip')</code>: annotates <code>"Note this dip"</code> at the location (5, -180) in the plot coordinates</li>
+
+</ul>
+<div class="org-src-container">
+
+<pre  class="src src-python"   ><code trim><span style="color: #00ffff;">import</span> matplotlib.pyplot <span style="color: #00ffff;">as</span> plt                        
+<span style="color: #00ffff;">import</span> numpy <span style="color: #00ffff;">as</span> np                                     
+
+<span style="color: #eedd82;">x</span> = np.linspace(0,2*np.pi,100)
+<span style="color: #eedd82;">p</span> = np.sin(x)*np.exp(x)
+
+plt.plot(x, p, <span style="color: #ffa07a;">'k'</span>) <span style="color: #ff7f24;"># </span><span style="color: #ff7f24;">plots
+</span>plt.xlabel(<span style="color: #ffa07a;">'x (m)'</span>) <span style="color: #ff7f24;"># </span><span style="color: #ff7f24;">creates the label for x-axis
+</span>plt.ylabel(<span style="color: #ffa07a;">'p (Pa)'</span>) <span style="color: #ff7f24;"># </span><span style="color: #ff7f24;">creates the label for y-axis
+</span>plt.title(<span style="color: #ffa07a;">'Pressure Variation'</span>) <span style="color: #ff7f24;"># </span><span style="color: #ff7f24;">creates a title
+</span>plt.text(5,-180,<span style="color: #ffa07a;">'Note this dip'</span>) <span style="color: #ff7f24;"># </span><span style="color: #ff7f24;">annotates a text</span>
+</code></pre>
+</div>
+</div>
+
+<div class="column" style="float:right; width:40%">
+
+<div id="org3731bd5" class="figure">
+<p><img src="./example3.png" alt="example3.png" width="700px" />
+</p>
+</div>
+</div>
+</section>
+<section id="slide-orgfae6324">
+<h3 id="orgfae6324">Grid</h3>
+<div class="column" style="float:left; width:60%">
+<ul>
+<li>A grid makes it easier to analyze a plot</li>
+<li><code>plt.grid()</code> function draws grid</li>
+
+</ul>
+
+<div class="org-src-container">
+
+<pre  class="src src-python"   ><code trim><span style="color: #00ffff;">import</span> matplotlib.pyplot <span style="color: #00ffff;">as</span> plt                        
+<span style="color: #00ffff;">import</span> numpy <span style="color: #00ffff;">as</span> np                                     
+
+<span style="color: #eedd82;">x</span> = np.linspace(0,2*np.pi,100)
+<span style="color: #eedd82;">p</span> = np.sin(x)*np.exp(x)
+plt.plot(x, p, <span style="color: #ffa07a;">'k'</span>)
+plt.xlabel(<span style="color: #ffa07a;">'x (m)'</span>) <span style="color: #ff7f24;"># </span><span style="color: #ff7f24;">creates the label for x-axis
+</span>plt.ylabel(<span style="color: #ffa07a;">'p (Pa)'</span>) <span style="color: #ff7f24;"># </span><span style="color: #ff7f24;">creates the label for y-axis
+</span>plt.title(<span style="color: #ffa07a;">'Pressure Variation'</span>) <span style="color: #ff7f24;"># </span><span style="color: #ff7f24;">creates a title
+</span>plt.text(5,-180,<span style="color: #ffa07a;">'Note this dip'</span>) <span style="color: #ff7f24;"># </span><span style="color: #ff7f24;">annotates a text
+</span>plt.grid() <span style="color: #ff7f24;"># </span><span style="color: #ff7f24;">adds grid
+</span>
+plt.show()
+</code></pre>
+</div>
+</div>
+
+<div class="column" style="float:right; width:40%">
+
+<div id="org736151b" class="figure">
+<p><img src="./example6.png" alt="example6.png" />
+</p>
+</div>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org401e316">
+<h2 id="org401e316">Overlay plots</h2>
+<ul>
+<li>We can plot data on top of each other by utilizing the overlay concept.</li>
+<li>After each <code>ax.plot</code> function execution, a plot is generated on the same figure</li>
+
+</ul>
+<div class="column" style="float:left; width:60%">
+<p>
+<i>Ex.</i>:
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-python"   ><code trim><span style="color: #00ffff;">import</span> matplotlib.pyplot <span style="color: #00ffff;">as</span> plt
+<span style="color: #00ffff;">import</span> numpy <span style="color: #00ffff;">as</span> np
+
+<span style="color: #ff7f24;"># </span><span style="color: #ff7f24;">Generate data points
+</span><span style="color: #eedd82;">x1</span> = np.linspace(0, 100, 50)
+<span style="color: #eedd82;">x2</span> = np.linspace(0, 100, 1000)
+
+<span style="color: #eedd82;">f</span> = 20*x1 + 3
+<span style="color: #eedd82;">g</span> = 3*x1**2 + np.sqrt(x1)
+<span style="color: #eedd82;">h</span> = 3e3*np.sin(5*x2) * np.exp(-0.5*x2)
+
+<span style="color: #ff7f24;"># </span><span style="color: #ff7f24;">Plot an overlay 2D plot for f, g, h
+</span>plt.plot(x1, f, <span style="color: #ffa07a;">"o"</span>, label = <span style="color: #ffa07a;">"f(x) = 20x + 3"</span>)
+plt.plot(x1, g, <span style="color: #ffa07a;">"^-"</span>, label = <span style="color: #ffa07a;">"g(x) = 3x^2 + x^(1/2)"</span>)
+plt.plot(x2, h, <span style="color: #ffa07a;">"-"</span>, label = <span style="color: #ffa07a;">"h(x) = 3*10^3*sin(5x) * exp(-0.5x)"</span>)
+plt.legend()
+
+<span style="color: #ff7f24;"># </span><span style="color: #ff7f24;">Other stuff
+</span>plt.title(<span style="color: #ffa07a;">"Plot for f(x), g(x), and h(x)"</span>)
+plt.xlabel(<span style="color: #ffa07a;">"x"</span>)
+plt.ylabel(<span style="color: #ffa07a;">"y"</span>)
+plt.grid()
+
+plt.show()
+</code></pre>
+</div>
+</div>
+
+<div class="column" style="float:right; width:40%">
+
+<div id="org6b7ad4e" class="figure">
+<p><img src="./example.png" alt="example.png" />
+</p>
+</div>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org04b58e3">
+<h2 id="org04b58e3">Subplotting</h2>
+<ul>
+<li>If there are more than one frames, we can collect those frames into one figure by subplotting.</li>
+<li>All the previous methods can be applied on subplotting</li>
+<li>Only <code>plt.subplot</code> will be added before each subplot section</li>
+
+</ul>
+</section>
+<section id="slide-orgde2ab49">
+<h3 id="orgde2ab49">Subplots configured as 1D arrays</h3>
+<div class="column" style="float:left; width:60%">
+<ul>
+<li>Let's create \(1\times2\) subplots</li>
+
+</ul>
+<div class="org-src-container">
+
+<pre  class="src src-python"   ><code trim><span style="color: #00ffff;">import</span> matplotlib.pyplot <span style="color: #00ffff;">as</span> plt                        
+<span style="color: #00ffff;">import</span> numpy <span style="color: #00ffff;">as</span> np                                     
+
+<span style="color: #ff7f24;"># </span><span style="color: #ff7f24;">generate data
+</span><span style="color: #eedd82;">x</span> = np.linspace(0,2*np.pi,100)
+<span style="color: #eedd82;">p</span> = np.sin(x)*np.exp(x)
+<span style="color: #eedd82;">g</span> = np.sin(5*x)/x
+
+<span style="color: #ff7f24;"># </span><span style="color: #ff7f24;">access first subplot
+</span>plt.subplot(1,2,1)
+<span style="color: #ff7f24;"># </span><span style="color: #ff7f24;">then plot
+</span>plt.plot(x, p, <span style="color: #ffa07a;">'k'</span>)
+plt.xlabel(<span style="color: #ffa07a;">'x (m)'</span>)
+plt.ylabel(<span style="color: #ffa07a;">'p (Pa)'</span>)
+plt.title(<span style="color: #ffa07a;">'Pressure Variation'</span>)
+plt.grid()
+
+<span style="color: #ff7f24;"># </span><span style="color: #ff7f24;">access second subplot
+</span>plt.subplot(1,2,2)
+<span style="color: #ff7f24;"># </span><span style="color: #ff7f24;">then plot
+</span>plt.plot(x, g, <span style="color: #ffa07a;">'ro-'</span>)
+plt.xlabel(<span style="color: #ffa07a;">'x'</span>)
+plt.ylabel(<span style="color: #ffa07a;">'sin(5x)/x'</span>)
+plt.title(<span style="color: #ffa07a;">'sin(5x)/x vs x'</span>)
+
+plt.tight_layout()
+
+plt.show()
+</code></pre>
+</div>
+<p>
+<span class="underline">Note</span>:- <code>plt.tight_layout()</code> adjusts the gaps between the figures such that labels and titles are clearly seen
+</p>
+</div>
+<div class="column" style="float:right; width:40%">
+
+<div id="orgd286e38" class="figure">
+<p><img src="./example7.png" alt="example7.png" />
+</p>
+</div>
+</div>
+</section>
+<section id="slide-org7bca8fc">
+<h3 id="org7bca8fc">Subplots configured as 2D arrays</h3>
+<div class="column" style="float:left; width:60%">
+<ul>
+<li>Let's create \(2\times2\) subplots</li>
+
+</ul>
+<div class="org-src-container">
+
+<pre  class="src src-python"   ><code trim><span style="color: #00ffff;">import</span> matplotlib.pyplot <span style="color: #00ffff;">as</span> plt
+<span style="color: #00ffff;">import</span> numpy <span style="color: #00ffff;">as</span> np
+
+<span style="color: #eedd82;">x</span> = np.linspace(0,2*np.pi,100)
+<span style="color: #eedd82;">y1</span> = np.sin(x)
+<span style="color: #eedd82;">y2</span> = x
+<span style="color: #eedd82;">y3</span> = x - (x**3)/6 + (x**5)/120
+<span style="color: #eedd82;">y4</span> = np.sin(x)*np.exp(x)
+
+<span style="color: #ff7f24;"># </span><span style="color: #ff7f24;">plotting the first frame in a 2x2 grid
+</span>plt.subplot(2,2,1)
+plt.plot(x,y1)
+plt.xlabel(<span style="color: #ffa07a;">"x"</span>)
+plt.ylabel(<span style="color: #ffa07a;">"y1"</span>)
+plt.title(<span style="color: #ffa07a;">"First subplot"</span>)
+plt.grid()
+
+<span style="color: #ff7f24;"># </span><span style="color: #ff7f24;">plotting the second frame in a 2x2 grid
+</span>plt.subplot(2,2,2)
+plt.plot(x,y2)
+plt.xlabel(<span style="color: #ffa07a;">"x"</span>)
+plt.ylabel(<span style="color: #ffa07a;">"y2"</span>)
+plt.title(<span style="color: #ffa07a;">"Second subplot"</span>)
+plt.grid()
+
+<span style="color: #ff7f24;"># </span><span style="color: #ff7f24;">plotting the third frame in a 2x2 grid
+</span>plt.subplot(2,2,3)
+plt.plot(x,y3)
+plt.xlabel(<span style="color: #ffa07a;">"x"</span>);
+plt.ylabel(<span style="color: #ffa07a;">"y3"</span>);
+plt.title(<span style="color: #ffa07a;">"Third subplot"</span>);
+plt.grid()
+
+<span style="color: #ff7f24;"># </span><span style="color: #ff7f24;">plotting the fourth frame in a 2x2 grid
+</span>plt.subplot(2,2,4)
+plt.plot(x,y4)
+plt.xlabel(<span style="color: #ffa07a;">"x"</span>);
+plt.ylabel(<span style="color: #ffa07a;">"y4"</span>);
+plt.title(<span style="color: #ffa07a;">"Fourth subplot"</span>);
+plt.grid()
+
+plt.tight_layout()
+plt.show()
+</code></pre>
+</div>
+</div>
+
+<div class="column" style="float:right; width:40%">
+
+<div id="org0ace73c" class="figure">
+<p><img src="./example8.png" alt="example8.png" />
+</p>
+</div>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgfeca2fb">
+<h2 id="orgfeca2fb">Examples</h2>
+<div class="outline-text-2" id="text-orgfeca2fb">
+</div>
+</section>
+<section id="slide-orgd0de8f2">
+<h3 id="orgd0de8f2">Example-1</h3>
+<div class="column" style="float:left; width:60%">
+<div class="org-src-container">
+
+<pre  class="src src-python"   ><code trim><span style="color: #00ffff;">import</span> matplotlib.pyplot <span style="color: #00ffff;">as</span> plt
+<span style="color: #00ffff;">import</span> numpy <span style="color: #00ffff;">as</span> np
+
+<span style="color: #eedd82;">x</span> = np.linspace(0,10,100)
+<span style="color: #eedd82;">t</span> = np.linspace(0,4,50)
+
+<span style="color: #eedd82;">f</span> = np.exp(-x) * np.sin(2*np.pi*x)
+<span style="color: #eedd82;">g</span> = 5*x
+<span style="color: #eedd82;">h</span> = 1/2 * 9.81 * t**2
+
+plt.plot(x,f,<span style="color: #ffa07a;">"k"</span>)
+plt.title(<span style="color: #ffa07a;">"f(x) vs x"</span>)
+plt.xlabel(<span style="color: #ffa07a;">"x"</span>)
+plt.ylabel(<span style="color: #ffa07a;">"f(x)"</span>)
+
+plt.grid()
+
+plt.show()
+</code></pre>
+</div>
+</div>
+
+<div class="column" style="float:right; width:40%">
+
+<div id="org6b95daf" class="figure">
+<p><img src="./example10.png" alt="example10.png" />
+</p>
+</div>
+</div>
+</section>
+<section id="slide-orgaf59421">
+<h3 id="orgaf59421">Example-2</h3>
+<div class="column" style="float:left; width:60%">
+<div class="org-src-container">
+
+<pre  class="src src-python"   ><code trim><span style="color: #00ffff;">import</span> matplotlib.pyplot <span style="color: #00ffff;">as</span> plt
+<span style="color: #00ffff;">import</span> numpy <span style="color: #00ffff;">as</span> np
+
+<span style="color: #ff7f24;"># </span><span style="color: #ff7f24;">DATA GENERATION
+</span><span style="color: #ff7f24;"># </span><span style="color: #ff7f24;">x-axis:
+</span><span style="color: #eedd82;">x</span> = np.linspace(0,2*np.pi,100)
+
+<span style="color: #ff7f24;"># </span><span style="color: #ff7f24;">f function (discontinuous):
+</span><span style="color: #eedd82;">f</span> = np.zeros((100,))
+
+<span style="color: #eedd82;">f0</span> = np.sin(x[(0 &lt;= x) &amp; (x &lt; np.pi/2)])
+<span style="color: #eedd82;">f</span>[0:np.size(f0)] = f0
+
+<span style="color: #eedd82;">f1</span> = x[(np.pi/2 &lt;= x) &amp; (x &lt; np.pi)]
+<span style="color: #eedd82;">f</span>[np.size(f0):np.size(f0) + np.size(f1)] = 0
+
+<span style="color: #eedd82;">f2</span> = np.sin(x[(np.pi &lt;= x) &amp; (x &lt; 3*np.pi/2)])
+<span style="color: #eedd82;">f</span>[np.size(f0) + np.size(f1):np.size(f0) + np.size(f1) + np.size(f2)] = f2
+
+<span style="color: #ff7f24;"># </span><span style="color: #ff7f24;">no need to evaluate the last section because it also remains 0 in f
+</span>
+<span style="color: #ff7f24;"># </span><span style="color: #ff7f24;">other two functions:
+</span><span style="color: #eedd82;">g</span> = -x**2 + 3
+<span style="color: #eedd82;">h</span> = 3*np.ones((np.size(x),))
+
+<span style="color: #ff7f24;"># </span><span style="color: #ff7f24;">PLOTTING
+</span><span style="color: #ff7f24;"># </span><span style="color: #ff7f24;">first subplot:
+</span>plt.subplot(1,2,1)
+plt.plot(x,f,<span style="color: #ffa07a;">"ks-"</span>)
+plt.title(<span style="color: #ffa07a;">"f(x) vs x"</span>)
+plt.ylabel(<span style="color: #ffa07a;">"f(x)"</span>)
+plt.xlabel(<span style="color: #ffa07a;">"x"</span>)
+plt.grid()
+
+<span style="color: #ff7f24;"># </span><span style="color: #ff7f24;">second subplot:
+</span>plt.subplot(1,2,2)
+plt.plot(x,g,<span style="color: #ffa07a;">"b-"</span>,label=<span style="color: #ffa07a;">"g(x) = -x**2 + 3"</span>)
+plt.plot(x,h,<span style="color: #ffa07a;">"r-"</span>,label=<span style="color: #ffa07a;">"h(x) = 3"</span>)
+plt.title(<span style="color: #ffa07a;">"Two functions"</span>)
+plt.ylabel(<span style="color: #ffa07a;">"outputs"</span>)
+plt.xlabel(<span style="color: #ffa07a;">"x"</span>)
+plt.legend()
+plt.grid()
+
+plt.tight_layout()
+
+plt.show()
+</code></pre>
+</div>
+</div>
+
+<div class="column" style="float:right; width:40%">
+
+<div id="orgec1e094" class="figure">
+<p><img src="./example9.png" alt="example9.png" />
+</p>
+</div>
+</div>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+slideNumber:"c/t", width:1920, height:1080, navigationMode:"linear", transition:"none",
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+
+});
+
+</script>
+</body>
+</html>
